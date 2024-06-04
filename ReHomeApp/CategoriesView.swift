@@ -12,14 +12,24 @@ import SwiftUI
             
             var body: some View {
                 ZStack(alignment: .bottomLeading) {
-                    Rectangle()
-                        .fill(Color.gray) // Placeholder for the image
+                    
+                    Image(imageName)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(height: 150)
+                                    .clipped()
+                    LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.6), Color.clear]),
+                                   startPoint: .bottom,
+                                   endPoint: .top)
                         .frame(height: 150)
+                        .cornerRadius(10)
                     Text(title)
                         .font(.title)
-                        .fontWeight(.bold)
+                        .fontWeight(.heavy)
                         .foregroundColor(.white)
                         .padding()
+
+
                 }
                 .cornerRadius(10)
                 .shadow(radius: 5)
@@ -33,5 +43,5 @@ import SwiftUI
         }
 
 #Preview {
-    CategoryView(imageName: "p1", title: "hello")
+    CategoryView(imageName: "homedecorImage", title: "HomeDecor")
 }

@@ -24,7 +24,7 @@ struct ReHomeAppApp: App {
                         Text("Add Item")
                     }
 
-                Text("Listing")
+                ListingView()
                     .tabItem {
                         Image(systemName: "list.bullet")
                         Text("Listing")

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ListingView: View {
     
-    
+    let maxStoryCount = 3
     let stories = [
             UserStory(id: "1", name: "Lindsay", imageName: "p1"),
             UserStory(id: "2", name: "Monica", imageName: "p1"),
@@ -30,59 +30,60 @@ struct ListingView: View {
                 .foregroundColor(.secondary)
                 .padding(.leading)
             Group {
-                Text("Bose QC-45 Noise cancelling")
-                    .padding([.top, .bottom])
+                Text("Noise cancelling")
+                    .padding(.top)
                     .font(.title3)
             }
             .padding(.leading)
             
             Group {
                 GeometryReader { geometry in
-                      HStack(spacing: .zero) {
-                        let component1Width = geometry.size.width * 0.45
-                        let component2Width = geometry.size.width * 0.55
+                      HStack(alignment: .center, spacing: 5) {
+                        let component1Width = geometry.size.width * 0.35
+                        let component2Width = geometry.size.width * 0.65
                           
-                          Image("product1")
-                              .resizable()
-                              .scaledToFit()
-                              .cornerRadius(15)
-                              .clipShape(Circle())
-                              .overlay(
-                                  Circle()
-                                    .stroke(.gray, style: StrokeStyle(lineWidth: 2.27))
-                              )
-                              .frame(width: component1Width)
-
                           VStack {
-                              ScrollView{
-                                  Text("There’s comfort in quiet. You can feel it the minute you put them on. The soft, plush cushions seal you in. You press the button and whoosh — the world fades, the music starts, and it’s love at first listen. That’s the power of our QuietComfort 45 Headphones with signature active noise cancelling technology and premium comfort. Bose QuietComfort 45 Headphones also deliver proprietary acoustic technology for deep, clear audio with adjustable EQ so you can tune your music to your liking. They're wireless headphones with a perfect balance of quiet, comfort, and sound you’ll enjoy all day long.")
-                                      .lineLimit(nil)
-                              }
-                              .padding(.trailing)
-                              
+                              Image("product1")
+                                  .resizable()
+                                  .scaledToFit()
+                                  .cornerRadius(50)
+                                  .frame(width: component1Width)
+                                  .padding([.leading, .trailing])
                               
                               HStack {
                                   Button("Edit"){
                                       
                                   }
                                   .background(Color(red: 0.03, green: 0.49, blue: 0.55))
-                                  .cornerRadius(50)
+                                  .cornerRadius(8)
                                   .foregroundColor(.white)
-                                  Button("🗑️"){
-                                      
-                                  }
-                                  .background(Color(red: 0.99, green: 0, blue: 0.36))
-                                  .cornerRadius(50)
-                                  .foregroundColor(.white)
+                                  .frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                  .controlSize(.regular)
+                                  .scaledToFit()
+                                  .padding(.top)
+                                  .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 4)
                               }
                               .buttonStyle(.bordered)
                           }
+                          
+                          VStack(alignment: .leading, spacing: 14) {
+                              ScrollView{
+                                  Text("An almost new headphone. Bought it in Jan 2024. But now I am gifted a new one. So wanna give this way.")
+                                      .lineLimit(nil)
+                                      .padding([.trailing, .top])
+                              }
+                              .padding([.trailing, .top])
+                              
+                              
+                              
+                          }
+                          .padding([.trailing, .top])
                           .frame(width: component2Width)
                       }
                     }
             }
             
-            Divider()
+            Divider().frame(height: 3).background(Color.black).padding(.horizontal)
             
             Group{
                 Text("Stories")
@@ -93,10 +94,10 @@ struct ListingView: View {
                 
                 ScrollView {
                     LazyVStack(spacing: 15) {
-                        ForEach(0..<self.stories.count/3 + (self.stories.count % 3 == 0 ? 0 : 1), id: \.self) { rowIndex in
+                        ForEach(0..<self.stories.count/maxStoryCount + (self.stories.count % maxStoryCount == 0 ? 0 : 1), id: \.self) { rowIndex in
                             HStack(spacing: 15) {
-                                ForEach(0..<3) { columnIndex in
-                                    let storyIndex = rowIndex * 3 + columnIndex
+                                ForEach(0..<maxStoryCount) { columnIndex in
+                                    let storyIndex = rowIndex * maxStoryCount + columnIndex
                                     if storyIndex < self.stories.count {
                                         UserStoryView(imageName: self.stories[storyIndex].imageName, title: self.stories[storyIndex].name)
                                             .frame(maxWidth: .infinity)

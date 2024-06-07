@@ -8,7 +8,7 @@
 import Foundation
 
 struct UserStory: Identifiable {
-    let id: String
-    let name: String
-    let imageName: String
+    let id: Int
+    let firstName: String
+    let profilePicture: String
 }

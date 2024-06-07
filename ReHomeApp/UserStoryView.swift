@@ -12,26 +12,6 @@ struct UserStoryView: View {
     let title: String
     
     var body: some View {
-        /*
-        VStack(alignment: .center) {
-            Image("p1")
-                .resizable()
-                .scaledToFit()
-                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                .overlay(
-                    Circle()
-                        .stroke(.yellow, style: StrokeStyle(lineWidth: 5))
-                )
-            
-            Text(title)
-                .font(.footnote)
-                .fontWeight(.regular)
-                .foregroundColor(.black)
-                .padding()
-                .scaledToFit()
-        }
-         */
-        
         VStack(alignment: .leading, spacing: 8) {
             ZStack {}
             .frame(width: 100, height: 100)
@@ -65,5 +45,5 @@ struct UserStoryView: View {
 }
 
 #Preview {
-    UserStoryView(imageName: "p1", title: "hello")
+    UserStoryView(imageName: "p1", title: "Helena")
 }

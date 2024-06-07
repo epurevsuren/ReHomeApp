@@ -10,11 +10,11 @@ import SwiftUI
 struct ListingView: View {
     
     let stories = [
-        UserStory(id: "1", name: "Helena", imageName: "p1"),
-        UserStory(id: "2", name: "Varun", imageName: "p2"),
-        UserStory(id: "3", name: "Carina", imageName: "p3"),
-        UserStory(id: "4", name: "Charles", imageName: "p4"),
-        UserStory(id: "5", name: "Wang", imageName: "p5")
+        UserStory(id: 1, firstName: "Helena", profilePicture: "p1"),
+        UserStory(id: 2, firstName: "Varun", profilePicture: "p2"),
+        UserStory(id: 3, firstName: "Carina", profilePicture: "p3"),
+        UserStory(id: 4, firstName: "Charles", profilePicture: "p4"),
+        UserStory(id: 5, firstName: "Wang", profilePicture: "p5")
     ]
     
     var body: some View {
@@ -103,10 +103,10 @@ struct ListingView: View {
                         LazyVStack(alignment: .leading, spacing: 19) {
                             LazyHStack(alignment: .top, spacing: 12) {
                                 ForEach(stories) {story in
-                                    UserStoryView(imageName: story.imageName, title: story.name)
+                                    UserStoryView(imageName: story.profilePicture, title: story.firstName)
                                 }
                             }
-                            .padding(0)
+                            .padding(.leading)
                         }
                         .padding(.horizontal, 0)
                         .padding(.bottom, 150)

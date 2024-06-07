@@ -11,8 +11,25 @@ import SwiftUI
 struct ReHomeAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-         
+            TabView {
+                HomeView()
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+
+                Text("Add Item")
+                    .tabItem {
+                        Image(systemName: "plus.circle.fill")
+                        Text("Add Item")
+                    }
+
+                Text("Listing")
+                    .tabItem {
+                        Image(systemName: "list.bullet")
+                        Text("Listing")
+                    }
+            }
         }
     }
 }

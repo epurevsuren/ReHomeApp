@@ -10,11 +10,13 @@ struct HomeView: View {
         Category(id: "5", name: "Decorations", imageName: "homedecorImage"),
         Category(id: "6", name: "Books", imageName: "booksImage"),
         Category(id: "7", name: "Shoes", imageName: "shoesImage"),
-        Category(id: "8", name: "Accesories", imageName: "accesoriesImage")
+        Category(id: "8", name: "Accessories", imageName: "accessoriesImage")
     ]
     
     @State private var searchText = ""
-    
+    @State private var savedListings: [Listing] = []
+    @State private var submissions: [Submission] = []
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -38,10 +40,17 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    Image(systemName: "bell.fill")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                        .padding(.trailing)
+                    HStack(spacing: 20) {
+                        NavigationLink(destination: SubmittedListingsView(submissions: submissions)) {
+                            Image(systemName: "checkmark.circle.fill")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                        }
+                        Image(systemName: "bell.fill")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                    }
+                    .padding(.trailing)
                 }
                 .padding()
                 
@@ -79,8 +88,10 @@ struct HomeView: View {
                     VStack(spacing: 15) {
                         ForEach(filteredCategories) { category in
                             NavigationLink {
-                                SwipeItemView(title: category.name)
-                                    .navigationTitle(category.name)
+                                SwipeItemView(title: category.name, category: category, onSubmit: { submission in
+                                    submissions.append(submission)
+                                }, selectedListing: Listing(id: 1, userId: 1, name: "Soccer Ball", imageNames: ["soccerBall"], category: "Sports", user: "Harry", userImage: "p1", condition: "Used - like new", pickupLocation: "Pick-up from Uni library", description: "I used this soccer ball during my high school games, and it holds many cherished memories. Now, I'm selling it to pass it on to someone who will appreciate it as much as I did"))
+                                .navigationTitle(category.name)
                             } label: {
                                 CategoryView(imageName: category.imageName, title: category.name)
                             }
@@ -89,12 +100,11 @@ struct HomeView: View {
                     .padding(.horizontal)
                 }
                 
-                // Tab Bar
-                Spacer()
+                Spacer() // Tab Bar Placeholder
             }
         }
     }
-    
+
     var filteredCategories: [Category] {
         if searchText.isEmpty {
             return categories
@@ -104,6 +114,45 @@ struct HomeView: View {
     }
 }
 
+struct Category: Identifiable {
+    let id: String
+    let name: String
+    let imageName: String
+}
+
+struct CategoryView: View {
+    let imageName: String
+    let title: String
+
+    var body: some View {
+        ZStack(alignment: .bottomLeading) {
+            Image(imageName)
+                .resizable()
+                .scaledToFill()
+                .frame(height: 150)
+                .clipped()
+                .cornerRadius(10)
+            
+            LinearGradient(
+                gradient: Gradient(colors: [Color.black.opacity(0.6), Color.clear]),
+                startPoint: .bottom,
+                endPoint: .top
+            )
+            .frame(height: 150)
+            .cornerRadius(10)
+            
+            Text(title)
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .padding()
+        }
+        .cornerRadius(10)
+        .shadow(radius: 5)
+    }
+}
+
 #Preview {
     HomeView()
 }
+

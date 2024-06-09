@@ -17,7 +17,7 @@ struct UserData: Identifiable{
 }
 
 //Define StoryView
-struct StoryView: View {
+struct StoryCardView: View {
     let id: Int
     @State private var currentCardIndex = 0
     @State private var Card: [UserData] = [
@@ -151,6 +151,6 @@ struct Destination: View {
 
 //Define Preview
 #Preview {
-    StoryView(id: 1)
+    StoryCardView(id: 1)
 }
 

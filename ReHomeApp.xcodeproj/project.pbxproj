@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		550715BD2C12B05800F6CC27 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550715BC2C12B05800F6CC27 /* user.swift */; };
+		5576335A2C146CAE000D7CCD /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557633592C146CAE000D7CCD /* Listing.swift */; };
+		55D85D892C15B00400264047 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D85D882C15B00400264047 /* DataController.swift */; };
+		55D85D8B2C15B05500264047 /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D85D8A2C15B05500264047 /* Submission.swift */; };
+		55D85D8D2C15CD9500264047 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D85D8C2C15CD9500264047 /* StoryView.swift */; };
 		55E3FEF32C0E92FF003D6983 /* ListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E3FEF22C0E92FF003D6983 /* ListingView.swift */; };
 		55E3FEF52C0E939D003D6983 /* UserStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E3FEF42C0E939D003D6983 /* UserStory.swift */; };
 		55E3FEF72C0E9AD0003D6983 /* UserStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E3FEF62C0E9AD0003D6983 /* UserStoryView.swift */; };
@@ -19,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		550715BC2C12B05800F6CC27 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		557633592C146CAE000D7CCD /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		55D85D882C15B00400264047 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		55D85D8A2C15B05500264047 /* Submission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
+		55D85D8C2C15CD9500264047 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		55E3FEF22C0E92FF003D6983 /* ListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingView.swift; sourceTree = "<group>"; };
 		55E3FEF42C0E939D003D6983 /* UserStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStory.swift; sourceTree = "<group>"; };
 		55E3FEF62C0E9AD0003D6983 /* UserStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoryView.swift; sourceTree = "<group>"; };
@@ -63,9 +73,14 @@
 			children = (
 				E4A6BAE72C08313E005E35A3 /* ReHomeAppApp.swift */,
 				E4A6BAE92C08313E005E35A3 /* ContentView.swift */,
+				55D85D882C15B00400264047 /* DataController.swift */,
 				E4A6BAF52C08314E005E35A3 /* CategoriesView.swift */,
 				E45C62932C0D6BCB00557DD9 /* HomeView.swift */,
+				557633592C146CAE000D7CCD /* Listing.swift */,
 				55E3FEF22C0E92FF003D6983 /* ListingView.swift */,
+				55D85D8A2C15B05500264047 /* Submission.swift */,
+				55D85D8C2C15CD9500264047 /* StoryView.swift */,
+				550715BC2C12B05800F6CC27 /* user.swift */,
 				55E3FEF42C0E939D003D6983 /* UserStory.swift */,
 				55E3FEF62C0E9AD0003D6983 /* UserStoryView.swift */,
 				E4A6BAEB2C08313E005E35A3 /* Assets.xcassets */,
@@ -153,9 +168,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4A6BAEA2C08313E005E35A3 /* ContentView.swift in Sources */,
+				5576335A2C146CAE000D7CCD /* Listing.swift in Sources */,
 				55E3FEF72C0E9AD0003D6983 /* UserStoryView.swift in Sources */,
 				55E3FEF32C0E92FF003D6983 /* ListingView.swift in Sources */,
 				55E3FEF52C0E939D003D6983 /* UserStory.swift in Sources */,
+				55D85D892C15B00400264047 /* DataController.swift in Sources */,
+				55D85D8D2C15CD9500264047 /* StoryView.swift in Sources */,
+				550715BD2C12B05800F6CC27 /* user.swift in Sources */,
+				55D85D8B2C15B05500264047 /* Submission.swift in Sources */,
 				E45C62942C0D6BCB00557DD9 /* HomeView.swift in Sources */,
 				E4A6BAF62C08314E005E35A3 /* CategoriesView.swift in Sources */,
 				E4A6BAE82C08313E005E35A3 /* ReHomeAppApp.swift in Sources */,

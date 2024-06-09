@@ -45,5 +45,5 @@ struct UserStoryView: View {
 }
 
 #Preview {
-    UserStoryView(imageName: "p1", title: "Helena")
+    UserStoryView(imageName: "Helena", title: "Helena")
 }

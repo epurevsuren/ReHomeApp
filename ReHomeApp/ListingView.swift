@@ -104,7 +104,7 @@ struct ListingView: View {
                             LazyVStack(alignment: .leading, spacing: 19) {
                                 LazyHStack(alignment: .top, spacing: 12) {
                                     ForEach(stories) {story in
-                                        NavigationLink(destination: StoryView(id: story.id)){
+                                        NavigationLink(destination: StoryCardView(id: story.id)){
                                             UserStoryView(imageName: story.profilePicture, title: story.firstName)
                                         }
                                     }

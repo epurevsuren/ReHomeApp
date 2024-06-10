@@ -18,6 +18,8 @@ struct ListingView: View {
     ]
     
     var body: some View {
+        @Environment(\.colorScheme) var colorScheme
+        
         NavigationView {
             VStack(alignment: .leading, content: {
                 GeometryReader { geometry in VStack (alignment: .leading, spacing: 0) {
@@ -87,7 +89,12 @@ struct ListingView: View {
                     }
                     .frame(height: geometry.size.height / 2)
                     
-                    Divider().frame(height: 3).background(Color.black).padding(.horizontal)
+                    
+                    
+                    Divider()
+                        .frame(height: 3)
+                        .background(colorScheme == .dark ? Color(red: 0.278, green: 0.278, blue: 0.290) : Color(red: 0.706, green: 0.706, blue: 0.714))
+                        .padding(.horizontal)
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Stories")

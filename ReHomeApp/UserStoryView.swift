@@ -21,6 +21,10 @@ struct UserStoryView: View {
                 .aspectRatio(contentMode: .fill)
                 .scaledToFit()
                 .clipped()
+                .overlay(
+                    Circle()
+                        .stroke(.regularMaterial, style: StrokeStyle(lineWidth: 5))
+                )
             )
             .background(Color(red: 0.96, green: 0.96, blue: 0.96))
             .cornerRadius(48)
@@ -32,7 +36,7 @@ struct UserStoryView: View {
                       .weight(.medium)
                   )
                   .multilineTextAlignment(.center)
-                  .foregroundColor(.black)
+                  .foregroundColor(.darkTerror)
                   .frame(width: 100, alignment: .center)
             }
             .padding(0)

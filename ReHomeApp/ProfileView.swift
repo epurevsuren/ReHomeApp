@@ -1,33 +1,15 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @State private var user: User = User(
-        id: 1,
-        userName: "Shivam Arora",
-        email: "shivam@example.com",
-        bio: "iOS Developer and Swift Enthusiast.",
-        profileImageName: "p1"
-    )
-    
+    @EnvironmentObject var dataProvider: DataProvider
     @Environment(\.presentationMode) var presentationMode
+
+    var user: User {
+        dataProvider.currentUser
+    }
 
     var body: some View {
         VStack(spacing: 20) {
-            HStack {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    HStack {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.blue)
-                        Text("Back")
-                            .foregroundColor(.blue)
-                    }
-                }
-                Spacer()
-            }
-            .padding(.leading)
-
             Image(user.profileImageName) // Profile image
                 .resizable()
                 .frame(width: 100, height: 100)
@@ -50,11 +32,23 @@ struct ProfileView: View {
         }
         .padding()
         .navigationTitle("Profile")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.blue)
+                }
+            }
+        }
     }
 }
 
 #Preview {
     NavigationStack {
         ProfileView()
+            .environmentObject(DataProvider())
     }
 }
+

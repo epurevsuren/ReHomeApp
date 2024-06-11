@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct AllListingView: View {
-    @Binding var listing: Listing
+     var listing: Listing
 
     var body: some View {
         ScrollView {
@@ -26,7 +26,7 @@ struct AllListingView: View {
 
 #Preview {
     AllListingView(
-        listing: Binding.constant(Listing(
+        listing: (Listing(
             id: 1,
             userId: 2,
             name: "Sample",

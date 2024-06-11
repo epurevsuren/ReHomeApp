@@ -11,6 +11,7 @@ struct NotificationView: View {
             
             ScrollView {
                 VStack(spacing: 10) {
+                    let groupedSubmissions = Dictionary(grouping: dataProvider.submissions, by: {$0.listingId})
                     ForEach(dataProvider.submissions, id: \.id) { submission in
                         if let listing = listing(for: submission.listingId) {
                             submissionRow(submission: submission, listing: listing)
@@ -43,12 +44,12 @@ struct NotificationView: View {
     }
     
     func messageHeader() -> some View {
-        Text("Your Submissions")
+        Text("♻️ Repurpose Requests")
             .font(.title2)
-            .fontWeight(.bold)
+            .fontWeight(.semibold)
             .foregroundColor(Color(red: 0.07, green: 0.05, blue: 0.19))
             .padding(.leading, 20)
-            .padding(.top, 20)
+            .padding(.bottom, 20)
     }
     
     func submissionRow(submission: Submission, listing: Listing) -> some View {
@@ -57,8 +58,9 @@ struct NotificationView: View {
                 Image(listing.imageNames.first ?? "placeholderImage")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 83, height: 81)
+                    .frame(width: 100, height: 100)
                     .clipped()
+                    .cornerRadius(48)
                 
                 VStack(alignment: .leading) {
                     Text(listing.name)
@@ -77,7 +79,7 @@ struct NotificationView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: SubmissionView(submission: submission, listing: listing)) {
+                NavigationLink(destination: RepurposeItemView(itemId: listing.id)) {
                     Image(systemName: "chevron.right")
                         .frame(width: 24, height: 24)
                 }

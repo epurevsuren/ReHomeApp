@@ -13,7 +13,7 @@ class DataProvider: ObservableObject {
         self.currentUser = User(
             id: 1,
             userName: "Shivam Arora",
-            email: "shivam@example.com",
+            email: "sarora.off@gmail.com",
             bio: "iOS Developer and Swift Enthusiast.",
             profileImageName: "p1"
         )
@@ -32,19 +32,21 @@ class DataProvider: ObservableObject {
             User(id: 7, userName: "Varun Bhatia", email: "varun.bhatia@student.uts.edu.au", bio: "I just commenced my first semester at UTS for my Marketing degree.", profileImageName: "Varun"),
             User(id: 8, userName: "Carina Morente", email: "carina.morente@student.uts.edu.au", bio: "I just commenced my first semester at UTS for my Marketing degree.", profileImageName: "Carine"),
             User(id: 9, userName: "Charles Brown", email: "charles.brown@student.uts.edu.au", bio: "I'm studying for a Master of IT at UTS", profileImageName: "Charles"),
-            User(id: 10, userName: "Wang Lee", email: "wang.lee@student.uts.edu.au", bio: "I'm a new college student at UTS.", profileImageName: "Wang")
+            User(id: 10, userName: "Wang Lee", email: "wang.lee@student.uts.edu.au", bio: "I'm a new college student at UTS.", profileImageName: "Wang"),
+            User(id: 11, userName: "Harry", email: "harry@.mdsi.edu", bio: "Student MDSI", profileImageName: "p1"),
+            User(id: 12, userName: "Riyan", email: "riyan@mit.edu", bio: "Student MIT", profileImageName: "p1")
         ]
 
         // Dummy Categories
         categories = [
             Category(id: "1", name: "Sports", imageName: "sportsImage"),
-            Category(id: "2", name: "Clothes", imageName: "clothesImage"),
-            Category(id: "3", name: "Furniture", imageName: "furnitureImage"),
-            Category(id: "4", name: "Electronics", imageName: "electronicsImage"),
-            Category(id: "5", name: "Decorations", imageName: "homedecorImage"),
-            Category(id: "6", name: "Books", imageName: "booksImage"),
-            Category(id: "7", name: "Shoes", imageName: "shoesImage"),
-            Category(id: "8", name: "Accessories", imageName: "accessoriesImage")
+            Category(id: "2", name: "Electronics", imageName: "electronicsImage"),
+            Category(id: "3", name: "Clothes", imageName: "clothesImage"),
+            Category(id: "4", name: "Books", imageName: "booksImage"),
+            Category(id: "5", name: "Shoes", imageName: "shoesImage"),
+            Category(id: "6", name: "Furniture", imageName: "furnitureImage"),
+            Category(id: "7", name: "Decorations", imageName: "homedecorImage"),
+            Category(id: "8", name: "Accessories", imageName: "accesoriesImage")
         ]
 
         // Dummy Listings
@@ -59,10 +61,10 @@ class DataProvider: ObservableObject {
         
         // Dummy Submissions
         submissions = [
-            Submission(id: 1, listingId: 1, ownerId: 4, userId: 2, story: "I need this because...", date: Date()),
-            Submission(id: 2, listingId: 5, ownerId: 4, userId: 6, story: "I'm a new Marketing student at UTS and came across your headphone listing. The color and features are exactly what I'm looking for! As I embark on my academic journey, having a reliable pair of headphones is essential for my coursework and study sessions. Could we discuss the possibility of me acquiring them from you?", date: Date()),
-            Submission(id: 3, listingId: 5, ownerId: 4, userId: 7, story: "I just commenced my first semester at UTS and need a headphone for my Marketing degree. Will be appreciate if I can receive it from someone. Really like the color and function of your headphone.", date: Date()),
-            Submission(id: 4, listingId: 5, ownerId: 4, userId: 8, story: "I just commenced my first semester at UTS and need a headphone for my Marketing degree. Will be appreciate if I can receive it from someone. Really like the color and function of your headphone.", date: Date()),
+            Submission(id: 1, listingId: 5, ownerId: 4, userId: 6, story: "I'm a new Marketing student at UTS and came across your headphone listing. The color and features are exactly what I'm looking for! As I embark on my academic journey, having a reliable pair of headphones is essential for my coursework and study sessions. Could we discuss the possibility of me acquiring them from you?", date: Date()),
+            Submission(id: 2, listingId: 5, ownerId: 4, userId: 7, story: "I just commenced my first semester at UTS and need a headphone for my Marketing degree. Will be appreciate if I can receive it from someone. Really like the color and function of your headphone.", date: Date()),
+            Submission(id: 3, listingId: 5, ownerId: 4, userId: 8, story: "I just commenced my first semester at UTS and need a headphone for my Marketing degree. Will be appreciate if I can receive it from someone. Really like the color and function of your headphone.", date: Date()),
+            Submission(id: 4, listingId: 1, ownerId: 4, userId: 2, story: "I need this because...", date: Date()),
             Submission(id: 5, listingId: 5, ownerId: 4, userId: 9, story: "I need this because...", date: Date()),
             Submission(id: 6, listingId: 5, ownerId: 4, userId: 10, story: "I need this because...", date: Date())
         ]

@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct ListingView: View {
+struct RepurposeItemView: View {
+    @EnvironmentObject var dataProvider: DataProvider
+    let itemId: Int
     
     let stories = [
         UserStory(id: 1, firstName: "Helena", profilePicture: "Helena"),
@@ -34,7 +36,7 @@ struct ListingView: View {
                     }
                 }
             }
-            .navigationBarTitle("Listing", displayMode: .inline)
+            .navigationBarTitle("♻️ Repurpose item", displayMode: .inline)
         }
     }
     
@@ -70,20 +72,22 @@ struct ListingView: View {
     
     @ViewBuilder
     private func headerSection() -> some View {
+        let currentListing = dataProvider.readListing(id: itemId)
+        
         VStack(alignment: .leading, spacing: 0) {
-            Text("Headphones")
+            Text(currentListing!.name)
                 .bold()
-                .font(.largeTitle)
+                .font(.title)
                 .padding(.leading)
-            Text("User 1")
+            Text(currentListing!.condition)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .padding(.leading)
             
             Group {
-                Text("Category")
+                Text(currentListing!.pickupLocation)
                     .padding(.top)
-                    .font(.title3)
+                    .font(.subheadline)
             }
             .padding(.leading)
             
@@ -94,7 +98,7 @@ struct ListingView: View {
                     let component2Width = geometry.size.width * 0.65
                     
                     VStack {
-                        Image("product1")
+                        Image(currentListing!.imageNames.first ?? "itemImage")
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(50)
@@ -119,11 +123,11 @@ struct ListingView: View {
                     
                     VStack(alignment: .leading, spacing: 14) {
                         ScrollView {
-                            Text("An almost new headphone. Bought it in Jan 2024. But now I am gifted a new one. So wanna give this way.")
+                            Text(currentListing!.description)
                                 .lineLimit(nil)
                                 .padding([.trailing, .top])
                         }
-                        .padding([.trailing, .top])
+                        .padding([.trailing])
                     }
                     .padding([.trailing, .top])
                     .frame(width: component2Width)
@@ -136,7 +140,7 @@ struct ListingView: View {
     @ViewBuilder
     private func storiesSection() -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("Stories")
+            Text("Stories 🌱")
                 .font(.title)
                 .bold()
                 .padding([.top, .leading, .bottom])
@@ -152,7 +156,7 @@ struct ListingView: View {
                 .padding(.leading)
             }
             .padding(.horizontal, 0)
-            .padding(.bottom, 100)
+            //.padding(.bottom, 100)
         }
         .padding(0)
     }
@@ -183,5 +187,6 @@ struct ListingView: View {
     }
 }
 #Preview {
-    ListingView()
+    RepurposeItemView(itemId: 5)
+        .environmentObject(DataProvider())
 }

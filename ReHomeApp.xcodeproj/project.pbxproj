@@ -11,7 +11,6 @@
 		556D1D552C181AE20086A8AD /* UserStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556D1D542C181AE20086A8AD /* UserStory.swift */; };
 		556D1D572C181AEA0086A8AD /* UserStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556D1D562C181AEA0086A8AD /* UserStoryView.swift */; };
 		556D1D592C181B030086A8AD /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556D1D582C181B030086A8AD /* StoryCardView.swift */; };
-		556D1D652C181D2C0086A8AD /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556D1D642C181D2C0086A8AD /* DataController.swift */; };
 		E45C62942C0D6BCB00557DD9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C62932C0D6BCB00557DD9 /* HomeView.swift */; };
 		E4A6BAE82C08313E005E35A3 /* ReHomeAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A6BAE72C08313E005E35A3 /* ReHomeAppApp.swift */; };
 		E4A6BAEC2C08313E005E35A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A6BAEB2C08313E005E35A3 /* Assets.xcassets */; };
@@ -39,7 +38,6 @@
 		556D1D542C181AE20086A8AD /* UserStory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStory.swift; sourceTree = "<group>"; };
 		556D1D562C181AEA0086A8AD /* UserStoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStoryView.swift; sourceTree = "<group>"; };
 		556D1D582C181B030086A8AD /* StoryCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
-		556D1D642C181D2C0086A8AD /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		E45C62932C0D6BCB00557DD9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E4A6BAE42C08313E005E35A3 /* ReHomeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReHomeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A6BAE72C08313E005E35A3 /* ReHomeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReHomeAppApp.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 				E4A6BAEB2C08313E005E35A3 /* Assets.xcassets */,
 				E4E93A292C116BDA002094C3 /* CategoryView.swift */,
 				E4E93A0B2C0EA7BB002094C3 /* ContentView.swift */,
-				556D1D642C181D2C0086A8AD /* DataController.swift */,
 				E4CB081C2C17DBED009E4EC8 /* DataProvider.swift */,
 				E45C62932C0D6BCB00557DD9 /* HomeView.swift */,
 				E4E93A192C115B76002094C3 /* ListingDetailView.swift */,
@@ -220,7 +217,6 @@
 				E4E93A0C2C0EA7BB002094C3 /* ContentView.swift in Sources */,
 				E4E93A102C0EBF3B002094C3 /* ProfileView.swift in Sources */,
 				E4A6BAE82C08313E005E35A3 /* ReHomeAppApp.swift in Sources */,
-				556D1D652C181D2C0086A8AD /* DataController.swift in Sources */,
 				E4E93A282C11694C002094C3 /* SubmissionDetailView.swift in Sources */,
 				E4CB081F2C17DC16009E4EC8 /* NotificationView.swift in Sources */,
 			);

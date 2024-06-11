@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Screenshot 2024-06-03 at 10.55.54 AM.png",
+      "filename" : "p4_1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "p4_2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "p4_3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,432 +1,429 @@
+To resolve the parse error, we need to ensure the `project.pbxproj` file is properly formatted and free from any merge conflicts or syntactical errors. Here's a corrected version of your file:
+
+```plaintext
 // !$*UTF8*$!
 {
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 56;
-	objects = {
+    archiveVersion = 1;
+    classes = {
+    };
+    objectVersion = 56;
+    objects = {
 
 /* Begin PBXBuildFile section */
-		E45C62942C0D6BCB00557DD9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C62932C0D6BCB00557DD9 /* HomeView.swift */; };
-		E4A6BAE82C08313E005E35A3 /* ReHomeAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A6BAE72C08313E005E35A3 /* ReHomeAppApp.swift */; };
-		E4A6BAEA2C08313E005E35A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A6BAE92C08313E005E35A3 /* ContentView.swift */; };
-		E4A6BAEC2C08313E005E35A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A6BAEB2C08313E005E35A3 /* Assets.xcassets */; };
-		E4A6BAEF2C08313E005E35A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A6BAEE2C08313E005E35A3 /* Preview Assets.xcassets */; };
-<<<<<<< HEAD
-		E4E93A0C2C0EA7BB002094C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A0B2C0EA7BB002094C3 /* ContentView.swift */; };
-		E4E93A0E2C0EB652002094C3 /* SwipeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A0D2C0EB652002094C3 /* SwipeItemView.swift */; };
-		E4E93A102C0EBF3B002094C3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A0F2C0EBF3B002094C3 /* ProfileView.swift */; };
-		E4E93A122C103B63002094C3 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A112C103B63002094C3 /* StoryView.swift */; };
-		E4E93A142C103B7A002094C3 /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A132C103B7A002094C3 /* SaveView.swift */; };
-		E4E93A162C103BA3002094C3 /* SavedListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A152C103BA3002094C3 /* SavedListingView.swift */; };
-		E4E93A182C11410C002094C3 /* AllListingImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A172C11410C002094C3 /* AllListingImagesView.swift */; };
-		E4E93A1A2C115B76002094C3 /* ListingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A192C115B76002094C3 /* ListingDetailView.swift */; };
-		E4E93A1C2C115C07002094C3 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A1B2C115C07002094C3 /* Listing.swift */; };
-		E4E93A1E2C115C27002094C3 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A1D2C115C27002094C3 /* user.swift */; };
-		E4E93A202C116539002094C3 /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A1F2C116539002094C3 /* Submission.swift */; };
-		E4E93A242C1165B6002094C3 /* SumbittedListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A232C1165B6002094C3 /* SumbittedListingView.swift */; };
-		E4E93A282C11694C002094C3 /* SubmissionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A272C11694C002094C3 /* SubmissionDetailView.swift */; };
-		E4E93A2A2C116BDA002094C3 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A292C116BDA002094C3 /* CategoryView.swift */; };
-		E4E93A2C2C117885002094C3 /* SwipeableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A2B2C117885002094C3 /* SwipeableCardView.swift */; };
-=======
-		E4A6BAF62C08314E005E35A3 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A6BAF52C08314E005E35A3 /* CategoriesView.swift */; };
->>>>>>> parent of 38a92b4 (Merge pull request #5 from ShivamArora99/Shivam_ReHome)
+        E45C62942C0D6BCB00557DD9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C62932C0D6BCB00557DD9 /* HomeView.swift */; };
+        E4A6BAE82C08313E005E35A3 /* ReHomeAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A6BAE72C08313E005E35A3 /* ReHomeAppApp.swift */; };
+        E4A6BAEA2C08313E005E35A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A6BAE92C08313E005E35A3 /* ContentView.swift */; };
+        E4A6BAEC2C08313E005E35A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A6BAEB2C08313E005E35A3 /* Assets.xcassets */; };
+        E4A6BAEF2C08313E005E35A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A6BAEE2C08313E005E35A3 /* Preview Assets.xcassets */; };
+        E4E93A0C2C0EA7BB002094C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A0B2C0EA7BB002094C3 /* ContentView.swift */; };
+        E4E93A0E2C0EB652002094C3 /* SwipeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A0D2C0EB652002094C3 /* SwipeItemView.swift */; };
+        E4E93A102C0EBF3B002094C3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A0F2C0EBF3B002094C3 /* ProfileView.swift */; };
+        E4E93A122C103B63002094C3 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A112C103B63002094C3 /* StoryView.swift */; };
+        E4E93A142C103B7A002094C3 /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A132C103B7A002094C3 /* SaveView.swift */; };
+        E4E93A162C103BA3002094C3 /* SavedListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A152C103BA3002094C3 /* SavedListingView.swift */; };
+        E4E93A182C11410C002094C3 /* AllListingImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A172C11410C002094C3 /* AllListingImagesView.swift */; };
+        E4E93A1A2C115B76002094C3 /* ListingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A192C115B76002094C3 /* ListingDetailView.swift */; };
+        E4E93A1C2C115C07002094C3 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A1B2C115C07002094C3 /* Listing.swift */; };
+        E4E93A1E2C115C27002094C3 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A1D2C115C27002094C3 /* user.swift */; };
+        E4E93A202C116539002094C3 /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A1F2C116539002094C3 /* Submission.swift */; };
+        E4E93A242C1165B6002094C3 /* SumbittedListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A232C1165B6002094C3 /* SumbittedListingView.swift */; };
+        E4E93A282C11694C002094C3 /* SubmissionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A272C11694C002094C3 /* SubmissionDetailView.swift */; };
+        E4E93A2A2C116BDA002094C3 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A292C116BDA002094C3 /* CategoryView.swift */; };
+        E4E93A2C2C117885002094C3 /* SwipeableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A2B2C117885002094C3 /* SwipeableCardView.swift */; };
+        E4A6BAF62C08314E005E35A3 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A6BAF52C08314E005E35A3 /* CategoriesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E45C62932C0D6BCB00557DD9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		E4A6BAE42C08313E005E35A3 /* ReHomeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReHomeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4A6BAE72C08313E005E35A3 /* ReHomeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReHomeAppApp.swift; sourceTree = "<group>"; };
-		E4A6BAE92C08313E005E35A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E4A6BAEB2C08313E005E35A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E4A6BAEE2C08313E005E35A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		E4E93A0B2C0EA7BB002094C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E4E93A0D2C0EB652002094C3 /* SwipeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeItemView.swift; sourceTree = "<group>"; };
-		E4E93A0F2C0EBF3B002094C3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		E4E93A112C103B63002094C3 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
-		E4E93A132C103B7A002094C3 /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
-		E4E93A152C103BA3002094C3 /* SavedListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedListingView.swift; sourceTree = "<group>"; };
-		E4E93A172C11410C002094C3 /* AllListingImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListingImagesView.swift; sourceTree = "<group>"; };
-		E4E93A192C115B76002094C3 /* ListingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailView.swift; sourceTree = "<group>"; };
-		E4E93A1B2C115C07002094C3 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
-		E4E93A1D2C115C27002094C3 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
-		E4E93A1F2C116539002094C3 /* Submission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
-		E4E93A232C1165B6002094C3 /* SumbittedListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumbittedListingView.swift; sourceTree = "<group>"; };
-		E4E93A272C11694C002094C3 /* SubmissionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionDetailView.swift; sourceTree = "<group>"; };
-		E4E93A292C116BDA002094C3 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
-		E4E93A2B2C117885002094C3 /* SwipeableCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCardView.swift; sourceTree = "<group>"; };
-=======
-		E4A6BAF52C08314E005E35A3 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
->>>>>>> parent of 38a92b4 (Merge pull request #5 from ShivamArora99/Shivam_ReHome)
+        E45C62932C0D6BCB00557DD9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+        E4A6BAE42C08313E005E35A3 /* ReHomeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReHomeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+        E4A6BAE72C08313E005E35A3 /* ReHomeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReHomeAppApp.swift; sourceTree = "<group>"; };
+        E4A6BAE92C08313E005E35A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+        E4A6BAEB2C08313E005E35A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+        E4A6BAEE2C08313E005E35A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+        E4E93A0B2C0EA7BB002094C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+        E4E93A0D2C0EB652002094C3 /* SwipeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeItemView.swift; sourceTree = "<group>"; };
+        E4E93A0F2C0EBF3B002094C3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+        E4E93A112C103B63002094C3 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+        E4E93A132C103B7A002094C3 /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
+        E4E93A152C103BA3002094C3 /* SavedListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedListingView.swift; sourceTree = "<group>"; };
+        E4E93A172C11410C002094C3 /* AllListingImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListingImagesView.swift; sourceTree = "<group>";
+
+ };
+        E4E93A192C115B76002094C3 /* ListingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailView.swift; sourceTree = "<group>"; };
+        E4E93A1B2C115C07002094C3 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+        E4E93A1D2C115C27002094C3 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+        E4E93A1F2C116539002094C3 /* Submission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
+        E4E93A232C1165B6002094C3 /* SumbittedListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumbittedListingView.swift; sourceTree = "<group>"; };
+        E4E93A272C11694C002094C3 /* SubmissionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionDetailView.swift; sourceTree = "<group>"; };
+        E4E93A292C116BDA002094C3 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+        E4E93A2B2C117885002094C3 /* SwipeableCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCardView.swift; sourceTree = "<group>"; };
+        E4A6BAF52C08314E005E35A3 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E4A6BAE12C08313E005E35A3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+        E4A6BAE12C08313E005E35A3 /* Frameworks */ = {
+            isa = PBXFrameworksBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E4A6BADB2C08313E005E35A3 = {
-			isa = PBXGroup;
-			children = (
-				E4A6BAE62C08313E005E35A3 /* ReHomeApp */,
-				E4A6BAE52C08313E005E35A3 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		E4A6BAE52C08313E005E35A3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E4A6BAE42C08313E005E35A3 /* ReHomeApp.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E4A6BAE62C08313E005E35A3 /* ReHomeApp */ = {
-			isa = PBXGroup;
-			children = (
-				E4A6BAE72C08313E005E35A3 /* ReHomeAppApp.swift */,
-<<<<<<< HEAD
-				E4E93A1B2C115C07002094C3 /* Listing.swift */,
-				E4E93A0B2C0EA7BB002094C3 /* ContentView.swift */,
-				E4E93A1D2C115C27002094C3 /* user.swift */,
-				E4E93A232C1165B6002094C3 /* SumbittedListingView.swift */,
-				E4E93A152C103BA3002094C3 /* SavedListingView.swift */,
-				E4E93A1F2C116539002094C3 /* Submission.swift */,
-				E4E93A272C11694C002094C3 /* SubmissionDetailView.swift */,
-				E45C62932C0D6BCB00557DD9 /* HomeView.swift */,
-				E4E93A0F2C0EBF3B002094C3 /* ProfileView.swift */,
-				E4E93A0D2C0EB652002094C3 /* SwipeItemView.swift */,
-				E4E93A172C11410C002094C3 /* AllListingImagesView.swift */,
-				E4E93A2B2C117885002094C3 /* SwipeableCardView.swift */,
-				E4E93A112C103B63002094C3 /* StoryView.swift */,
-				E4E93A192C115B76002094C3 /* ListingDetailView.swift */,
-				E4E93A292C116BDA002094C3 /* CategoryView.swift */,
-				E4E93A132C103B7A002094C3 /* SaveView.swift */,
-=======
-				E4A6BAE92C08313E005E35A3 /* ContentView.swift */,
-				E4A6BAF52C08314E005E35A3 /* CategoriesView.swift */,
-				E45C62932C0D6BCB00557DD9 /* HomeView.swift */,
->>>>>>> parent of 38a92b4 (Merge pull request #5 from ShivamArora99/Shivam_ReHome)
-				E4A6BAEB2C08313E005E35A3 /* Assets.xcassets */,
-				E4A6BAED2C08313E005E35A3 /* Preview Content */,
-			);
-			path = ReHomeApp;
-			sourceTree = "<group>";
-		};
-		E4A6BAED2C08313E005E35A3 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				E4A6BAEE2C08313E005E35A3 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
+        E4A6BADB2C08313E005E35A3 = {
+            isa = PBXGroup;
+            children = (
+                E4A6BAE62C08313E005E35A3 /* ReHomeApp */,
+                E4A6BAE52C08313E005E35A3 /* Products */,
+            );
+            sourceTree = "<group>";
+        };
+        E4A6BAE52C08313E005E35A3 /* Products */ = {
+            isa = PBXGroup;
+            children = (
+                E4A6BAE42C08313E005E35A3 /* ReHomeApp.app */,
+            );
+            name = Products;
+            sourceTree = "<group>";
+        };
+        E4A6BAE62C08313E005E35A3 /* ReHomeApp */ = {
+            isa = PBXGroup;
+            children = (
+                E4A6BAE72C08313E005E35A3 /* ReHomeAppApp.swift */,
+                E4E93A1B2C115C07002094C3 /* Listing.swift */,
+                E4E93A0B2C0EA7BB002094C3 /* ContentView.swift */,
+                E4E93A1D2C115C27002094C3 /* user.swift */,
+                E4E93A232C1165B6002094C3 /* SumbittedListingView.swift */,
+                E4E93A152C103BA3002094C3 /* SavedListingView.swift */,
+                E4E93A1F2C116539002094C3 /* Submission.swift */,
+                E4E93A272C11694C002094C3 /* SubmissionDetailView.swift */,
+                E45C62932C0D6BCB00557DD9 /* HomeView.swift */,
+                E4E93A0F2C0EBF3B002094C3 /* ProfileView.swift */,
+                E4E93A0D2C0EB652002094C3 /* SwipeItemView.swift */,
+                E4E93A172C11410C002094C3 /* AllListingImagesView.swift */,
+                E4E93A2B2C117885002094C3 /* SwipeableCardView.swift */,
+                E4E93A112C103B63002094C3 /* StoryView.swift */,
+                E4E93A192C115B76002094C3 /* ListingDetailView.swift */,
+                E4E93A292C116BDA002094C3 /* CategoryView.swift */,
+                E4E93A132C103B7A002094C3 /* SaveView.swift */,
+                E4A6BAEB2C08313E005E35A3 /* Assets.xcassets */,
+                E4A6BAED2C08313E005E35A3 /* Preview Content */,
+            );
+            path = ReHomeApp;
+            sourceTree = "<group>";
+        };
+        E4A6BAED2C08313E005E35A3 /* Preview Content */ = {
+            isa = PBXGroup;
+            children = (
+                E4A6BAEE2C08313E005E35A3 /* Preview Assets.xcassets */,
+            );
+            path = "Preview Content";
+            sourceTree = "<group>";
+        };
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E4A6BAE32C08313E005E35A3 /* ReHomeApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E4A6BAF22C08313E005E35A3 /* Build configuration list for PBXNativeTarget "ReHomeApp" */;
-			buildPhases = (
-				E4A6BAE02C08313E005E35A3 /* Sources */,
-				E4A6BAE12C08313E005E35A3 /* Frameworks */,
-				E4A6BAE22C08313E005E35A3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ReHomeApp;
-			productName = ReHomeApp;
-			productReference = E4A6BAE42C08313E005E35A3 /* ReHomeApp.app */;
-			productType = "com.apple.product-type.application";
-		};
+        E4A6BAE32C08313E005E35A3 /* ReHomeApp */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = E4A6BAF22C08313E005E35A3 /* Build configuration list for PBXNativeTarget "ReHomeApp" */;
+            buildPhases = (
+                E4A6BAE02C08313E005E35A3 /* Sources */,
+                E4A6BAE12C08313E005E35A3 /* Frameworks */,
+                E4A6BAE22C08313E005E35A3 /* Resources */,
+            );
+            buildRules = (
+            );
+            dependencies = (
+            );
+            name = ReHomeApp;
+            productName = ReHomeApp;
+            productReference = E4A6BAE42C08313E005E35A3 /* ReHomeApp.app */;
+            productType = "com.apple.product-type.application";
+        };
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E4A6BADC2C08313E005E35A3 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
-				TargetAttributes = {
-					E4A6BAE32C08313E005E35A3 = {
-						CreatedOnToolsVersion = 15.4;
-					};
-				};
-			};
-			buildConfigurationList = E4A6BADF2C08313E005E35A3 /* Build configuration list for PBXProject "ReHomeApp" */;
-			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = E4A6BADB2C08313E005E35A3;
-			productRefGroup = E4A6BAE52C08313E005E35A3 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				E4A6BAE32C08313E005E35A3 /* ReHomeApp */,
-			);
-		};
+        E4A6BADC2C08313E005E35A3 /* Project object */ = {
+            isa = PBXProject;
+            attributes = {
+                BuildIndependentTargetsInParallel = 1;
+                LastSwiftUpdateCheck = 1540;
+                LastUpgradeCheck = 1540;
+                TargetAttributes = {
+                    E4A6BAE32C08313E005E35A3 = {
+                        CreatedOnToolsVersion = 15.4;
+                    };
+                };
+            };
+            buildConfigurationList = E4A6BADF2C08313E005E35A3 /* Build configuration list for PBXProject "ReHomeApp" */;
+            compatibilityVersion = "Xcode 14.0";
+            developmentRegion = en;
+            hasScannedForEncodings = 0;
+            knownRegions = (
+                en,
+                Base,
+            );
+            mainGroup = E4A6BADB2C08313E005E35A3;
+            productRefGroup = E4A6BAE52C08313E005E35A3 /* Products */;
+            projectDirPath = "";
+            projectRoot = "";
+            targets = (
+                E4A6BAE32C08313E005E35A3 /* ReHomeApp */,
+            );
+        };
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E4A6BAE22C08313E005E35A3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E4A6BAEF2C08313E005E35A3 /* Preview Assets.xcassets in Resources */,
-				E4A6BAEC2C08313E005E35A3 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+        E4A6BAE22C08313E005E35A3 /* Resources */ = {
+            isa = PBXResourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                E4A6BAEF2C08313E005E35A3 /* Preview Assets.xcassets in Resources */,
+                E4A6BAEC2C08313E005E35A3 /* Assets.xcassets in Resources */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E4A6BAE02C08313E005E35A3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-<<<<<<< HEAD
-				E4E93A1E2C115C27002094C3 /* user.swift in Sources */,
-				E4E93A202C116539002094C3 /* Submission.swift in Sources */,
-				E4E93A1A2C115B76002094C3 /* ListingDetailView.swift in Sources */,
-				E45C62942C0D6BCB00557DD9 /* HomeView.swift in Sources */,
-				E4E93A2C2C117885002094C3 /* SwipeableCardView.swift in Sources */,
-				E4E93A182C11410C002094C3 /* AllListingImagesView.swift in Sources */,
-				E4E93A0E2C0EB652002094C3 /* SwipeItemView.swift in Sources */,
-				E4E93A2A2C116BDA002094C3 /* CategoryView.swift in Sources */,
-				E4E93A242C1165B6002094C3 /* SumbittedListingView.swift in Sources */,
-				E4E93A142C103B7A002094C3 /* SaveView.swift in Sources */,
-				E4E93A162C103BA3002094C3 /* SavedListingView.swift in Sources */,
-				E4E93A122C103B63002094C3 /* StoryView.swift in Sources */,
-				E4E93A0C2C0EA7BB002094C3 /* ContentView.swift in Sources */,
-				E4E93A102C0EBF3B002094C3 /* ProfileView.swift in Sources */,
-				E4E93A1C2C115C07002094C3 /* Listing.swift in Sources */,
-=======
-				E4A6BAEA2C08313E005E35A3 /* ContentView.swift in Sources */,
-				E45C62942C0D6BCB00557DD9 /* HomeView.swift in Sources */,
-				E4A6BAF62C08314E005E35A3 /* CategoriesView.swift in Sources */,
->>>>>>> parent of 38a92b4 (Merge pull request #5 from ShivamArora99/Shivam_ReHome)
-				E4A6BAE82C08313E005E35A3 /* ReHomeAppApp.swift in Sources */,
-				E4E93A282C11694C002094C3 /* SubmissionDetailView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+        E4A6BAE02C08313E005E35A3 /* Sources */ = {
+            isa = PBXSourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                E4E93A1E2C115C27002094C3 /* user.swift in Sources */,
+                E4E93A202C116539002094C3 /* Submission.swift
+
+ in Sources */,
+                E4E93A1A2C115B76002094C3 /* ListingDetailView.swift in Sources */,
+                E45C62942C0D6BCB00557DD9 /* HomeView.swift in Sources */,
+                E4E93A2C2C117885002094C3 /* SwipeableCardView.swift in Sources */,
+                E4E93A182C11410C002094C3 /* AllListingImagesView.swift in Sources */,
+                E4E93A0E2C0EB652002094C3 /* SwipeItemView.swift in Sources */,
+                E4E93A2A2C116BDA002094C3 /* CategoryView.swift in Sources */,
+                E4E93A242C1165B6002094C3 /* SumbittedListingView.swift in Sources */,
+                E4E93A142C103B7A002094C3 /* SaveView.swift in Sources */,
+                E4E93A162C103BA3002094C3 /* SavedListingView.swift in Sources */,
+                E4E93A122C103B63002094C3 /* StoryView.swift in Sources */,
+                E4E93A0C2C0EA7BB002094C3 /* ContentView.swift in Sources */,
+                E4E93A102C0EBF3B002094C3 /* ProfileView.swift in Sources */,
+                E4E93A1C2C115C07002094C3 /* Listing.swift in Sources */,
+                E4A6BAEA2C08313E005E35A3 /* ContentView.swift in Sources */,
+                E45C62942C0D6BCB00557DD9 /* HomeView.swift in Sources */,
+                E4A6BAF62C08314E005E35A3 /* CategoriesView.swift in Sources */,
+                E4A6BAE82C08313E005E35A3 /* ReHomeAppApp.swift in Sources */,
+                E4E93A282C11694C002094C3 /* SubmissionDetailView.swift in Sources */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		E4A6BAF02C08313E005E35A3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		E4A6BAF12C08313E005E35A3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		E4A6BAF32C08313E005E35A3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ReHomeApp/Preview Content\"";
-				DEVELOPMENT_TEAM = HNB78VG79H;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SiriSidekicks.ReHomeApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		E4A6BAF42C08313E005E35A3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ReHomeApp/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SiriSidekicks.ReHomeApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
+        E4A6BAF02C08313E005E35A3 /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ALWAYS_SEARCH_USER_PATHS = NO;
+                ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+                CLANG_ANALYZER_NONNULL = YES;
+                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+                CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+                CLANG_ENABLE_MODULES = YES;
+                CLANG_ENABLE_OBJC_ARC = YES;
+                CLANG_ENABLE_OBJC_WEAK = YES;
+                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+                CLANG_WARN_BOOL_CONVERSION = YES;
+                CLANG_WARN_COMMA = YES;
+                CLANG_WARN_CONSTANT_CONVERSION = YES;
+                CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+                CLANG_WARN_EMPTY_BODY = YES;
+                CLANG_WARN_ENUM_CONVERSION = YES;
+                CLANG_WARN_INFINITE_RECURSION = YES;
+                CLANG_WARN_INT_CONVERSION = YES;
+                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+                CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+                CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+                CLANG_WARN_STRICT_PROTOTYPES = YES;
+                CLANG_WARN_SUSPICIOUS_MOVE = YES;
+                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+                CLANG_WARN_UNREACHABLE_CODE = YES;
+                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+                COPY_PHASE_STRIP = NO;
+                DEBUG_INFORMATION_FORMAT = dwarf;
+                ENABLE_STRICT_OBJC_MSGSEND = YES;
+                ENABLE_TESTABILITY = YES;
+                ENABLE_USER_SCRIPT_SANDBOXING = YES;
+                GCC_C_LANGUAGE_STANDARD = gnu17;
+                GCC_DYNAMIC_NO_PIC = NO;
+                GCC_NO_COMMON_BLOCKS = YES;
+                GCC_OPTIMIZATION_LEVEL = 0;
+                GCC_PREPROCESSOR_DEFINITIONS = (
+                    "DEBUG=1",
+                    "$(inherited)",
+                );
+                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+                GCC_WARN_UNDECLARED_SELECTOR = YES;
+                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+                GCC_WARN_UNUSED_FUNCTION = YES;
+                GCC_WARN_UNUSED_VARIABLE = YES;
+                IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+                LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+                MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+                MTL_FAST_MATH = YES;
+                ONLY_ACTIVE_ARCH = YES;
+                SDKROOT = iphoneos;
+                SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+                SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+            };
+            name = Debug;
+        };
+        E4A6BAF12C08313E005E35A3 /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ALWAYS_SEARCH_USER_PATHS = NO;
+                ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+                CLANG_ANALYZER_NONNULL = YES;
+                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+                CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+                CLANG_ENABLE_MODULES = YES;
+                CLANG_ENABLE_OBJC_ARC = YES;
+                CLANG_ENABLE_OBJC_WEAK = YES;
+                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+                CLANG_WARN_BOOL_CONVERSION = YES;
+                CLANG_WARN_COMMA = YES;
+                CLANG_WARN_CONSTANT_CONVERSION = YES;
+                CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+                CLANG_WARN_EMPTY_BODY = YES;
+                CLANG_WARN_ENUM_CONVERSION = YES;
+                CLANG_WARN_INFINITE_RECURSION = YES;
+                CLANG_WARN_INT_CONVERSION = YES;
+                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+                CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+                CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+                CLANG_WARN_STRICT_PROTOTYPES = YES;
+                CLANG_WARN_SUSPICIOUS_MOVE = YES;
+                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+                CLANG_WARN_UNREACHABLE_CODE = YES;
+                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+                COPY_PHASE_STRIP = NO;
+                DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+                ENABLE_NS_ASSERTIONS = NO;
+                ENABLE_STRICT_OBJC_MSGSEND = YES;
+                ENABLE_USER_SCRIPT_SANDBOXING = YES;
+                GCC_C_LANGUAGE_STANDARD = gnu17;
+                GCC_NO_COMMON_BLOCKS = YES;
+                GCC_WARN_64_TO_32 BIT_CONVERSION = YES;
+                GCC_WARN_ABOUT RETURN TYPE = YES_ERROR;
+                GCC_WARN_UNDECLARED_SELECTOR = YES;
+                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+                GCC_WARN_UNUSED_FUNCTION = YES;
+                GCC_WARN_UNUSED_VARIABLE = YES;
+                IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+                LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+                MTL_ENABLE_DEBUG_INFO = NO;
+                MTL_FAST_MATH = YES;
+                SDKROOT = iphoneos;
+                SWIFT_COMPILATION_MODE = wholemodule;
+                VALIDATE_PRODUCT = YES;
+            };
+            name = Release;
+        };
+        E4A6BAF32C08313E005E35A3 /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+                ASSETCATALOG_COMPILER_GLOBAL ACCENT_COLOR_NAME = AccentColor;
+                CODE_SIGN_STYLE = Automatic;
+                CURRENT_PROJECT_VERSION = 1;
+                DEVELOPMENT_ASSET_PATHS = "\"ReHomeApp/Preview Content\"";
+                DEVELOPMENT_TEAM = HNB78VG79H;
+                ENABLE_PREVIEWS = YES;
+                GENERATE_INFOPLIST FILE = YES;
+                INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+                INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+                INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+                INFOPLIST
+
+_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+                INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+                IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/Frameworks",
+                );
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = SiriSidekicks.ReHomeApp;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SWIFT_EMIT_LOC_STRINGS = YES;
+                SWIFT_VERSION = 5.0;
+                TARGETED_DEVICE_FAMILY = "1,2";
+            };
+            name = Debug;
+        };
+        E4A6BAF42C08313E005E35A3 /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+                ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+                CODE_SIGN_STYLE = Automatic;
+                CURRENT_PROJECT_VERSION = 1;
+                DEVELOPMENT_ASSET_PATHS = "\"ReHomeApp/Preview Content\"";
+                ENABLE_PREVIEWS = YES;
+                GENERATE_INFOPLIST FILE = YES;
+                INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+                INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+                INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+                INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+                INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+                IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/Frameworks",
+                );
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = SiriSidekicks.ReHomeApp;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SWIFT_EMIT_LOC_STRINGS = YES;
+                SWIFT_VERSION = 5.0;
+                TARGETED_DEVICE_FAMILY = "1,2";
+            };
+            name = Release;
+        };
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E4A6BADF2C08313E005E35A3 /* Build configuration list for PBXProject "ReHomeApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E4A6BAF02C08313E005E35A3 /* Debug */,
-				E4A6BAF12C08313E005E35A3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E4A6BAF22C08313E005E35A3 /* Build configuration list for PBXNativeTarget "ReHomeApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E4A6BAF32C08313E005E35A3 /* Debug */,
-				E4A6BAF42C08313E005E35A3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
+        E4A6BADF2C08313E005E35A3 /* Build configuration list for PBXProject "ReHomeApp" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                E4A6BAF02C08313E005E35A3 /* Debug */,
+                E4A6BAF12C08313E005E35A3 /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+        E4A6BAF22C08313E005E35A3 /* Build configuration list for PBXNativeTarget "ReHomeApp" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                E4A6BAF32C08313E005E35A3 /* Debug */,
+                E4A6BAF42C08313E005E35A3 /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
 /* End XCConfigurationList section */
-	};
-	rootObject = E4A6BADC2C08313E005E35A3 /* Project object */;
+    };
+    rootObject = E4A6BADC2C08313E005E35A3 /* Project object */;
 }
+```
+
+Ensure that this version is saved correctly in your `project.pbxproj` file. It appears to include all the necessary changes and should resolve any parsing errors you're encountering. Make sure there are no extra or missing braces and that all sections are properly closed.

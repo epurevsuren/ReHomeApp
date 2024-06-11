@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  ReHomeApp
-//
-//  Created by Shivam Arora on 30/5/2024.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -15,17 +8,23 @@ struct ContentView: View {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
-
-            Text("Add Item")
+            
+            AddItemView()
                 .tabItem {
                     Image(systemName: "plus.circle.fill")
                     Text("Add Item")
                 }
-
-            ListingView()
+            
+            MyListingsView()
                 .tabItem {
                     Image(systemName: "list.bullet")
-                    Text("Listing")
+                    Text("My Listings")
+                }
+            
+            ProfileView()
+                .tabItem {
+                    Image(systemName: "person.fill")
+                    Text("Profile")
                 }
         }
     }
@@ -33,4 +32,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(DataProvider())
 }

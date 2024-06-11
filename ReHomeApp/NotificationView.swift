@@ -4,44 +4,25 @@ struct NotificationView: View {
     @EnvironmentObject var dataProvider: DataProvider
     
     var body: some View {
-        VStack(spacing: 0) {
-            statusHeader()
-            
+        VStack {
             messageHeader()
             
             ScrollView {
                 VStack(spacing: 10) {
-                    let groupedSubmissions = Dictionary(grouping: dataProvider.submissions, by: {$0.listingId})
                     ForEach(dataProvider.submissions, id: \.id) { submission in
-                        if let listing = listing(for: submission.listingId) {
-                            submissionRow(submission: submission, listing: listing)
-                        }
-                    }
+                                            if let currentListing = getListing(for: submission.listingId) {
+                                                submissionRow(count: submission.listingId, listing: currentListing)
+                                            }
+                                        }
                 }
                 .padding(.bottom, 20)
             }
         }
-        .background(Color.white)
-        .edgesIgnoringSafeArea(.top)
     }
 
-    func statusHeader() -> some View {
-        HStack {
-            Text("9:41")
-                .font(.body)
-                .fontWeight(.semibold)
-                .foregroundColor(.black)
-                .padding(.leading, 20)
-            
-            Spacer()
-            
-            Image("Levels")
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 70, height: 20)
-                .padding(.trailing, 20)
+    func getListing(for listingId: Int) -> Listing? {
+            return dataProvider.listings.first { $0.id == listingId }
         }
-        .frame(height: 80)
-    }
     
     func messageHeader() -> some View {
         Text("♻️ Repurpose Requests")
@@ -52,7 +33,7 @@ struct NotificationView: View {
             .padding(.bottom, 20)
     }
     
-    func submissionRow(submission: Submission, listing: Listing) -> some View {
+    func submissionRow(count: Int, listing: Listing) -> some View {
         VStack {
             HStack {
                 Image(listing.imageNames.first ?? "placeholderImage")
@@ -71,7 +52,7 @@ struct NotificationView: View {
                         .font(.subheadline)
                         .foregroundColor(Color(red: 0.19, green: 0.18, blue: 0.3))
                     
-                    Text("New submission: \(submission.story)")
+                    Text("\(count) stories for you to review")
                         .font(.caption)
                         .foregroundColor(Color(red: 0.03, green: 0.49, blue: 0.55))
                 }
@@ -89,63 +70,6 @@ struct NotificationView: View {
             .cornerRadius(10)
             .padding(.horizontal, 20)
         }
-    }
-    
-    func listing(for listingId: Int) -> Listing? {
-        return dataProvider.listings.first { $0.id == listingId }
-    }
-}
-
-struct SubmissionView: View {
-    let submission: Submission
-    let listing: Listing
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            Text(listing.name)
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(listing.imageNames, id: \.self) { imageName in
-                        Image(imageName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 200)
-                            .cornerRadius(10)
-                            .padding(.trailing, 10)
-                    }
-                }
-            }
-            
-            Text("Category: \(listing.category)")
-                .font(.headline)
-            
-            Text("Condition: \(listing.condition)")
-                .font(.headline)
-                .foregroundColor(.orange)
-            
-            Text("Pickup Location: \(listing.pickupLocation)")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-            
-            Text(listing.description)
-                .font(.body)
-            
-            Divider()
-            
-            Text("Submission Story")
-                .font(.title2)
-                .fontWeight(.bold)
-            
-            Text(submission.story)
-                .font(.body)
-            
-            Spacer()
-        }
-        .padding()
-        .navigationTitle("Submission Details")
     }
 }
 

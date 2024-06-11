@@ -1,6 +1,3 @@
-To resolve the parse error, we need to ensure the `project.pbxproj` file is properly formatted and free from any merge conflicts or syntactical errors. Here's a corrected version of your file:
-
-```plaintext
 // !$*UTF8*$!
 {
     archiveVersion = 1;
@@ -424,6 +421,3 @@ _KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UII
     };
     rootObject = E4A6BADC2C08313E005E35A3 /* Project object */;
 }
-```
-
-Ensure that this version is saved correctly in your `project.pbxproj` file. It appears to include all the necessary changes and should resolve any parsing errors you're encountering. Make sure there are no extra or missing braces and that all sections are properly closed.

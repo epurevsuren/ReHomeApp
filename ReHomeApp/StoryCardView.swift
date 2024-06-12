@@ -155,6 +155,9 @@ struct Destination: View {
 //Define Destination of ReHome button
 struct Destination1: View {
     let fullName: String
+    @EnvironmentObject var dataProvider: DataProvider
+    @State private var isHomeViewActive = false
+    
     var body: some View {
         VStack {
             Spacer()
@@ -176,7 +179,7 @@ struct Destination1: View {
                 )
             Spacer()
             Button("Back to Home") {
-                
+                isHomeViewActive = true
             }
             .font(Font.custom("SF Pro", size: 17).weight(.semibold))
             .foregroundColor(Color(red: 0.96, green: 0.99, blue: 0.99))
@@ -185,6 +188,11 @@ struct Destination1: View {
             .cornerRadius(8)
             .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19), radius: 2, x: 0, y: 4)
             .padding(5)
+            .navigationDestination(isPresented: $isHomeViewActive) {
+                HomeView()
+                    .environmentObject(dataProvider)
+            }
+            
             Spacer()
             Spacer()
             Spacer()

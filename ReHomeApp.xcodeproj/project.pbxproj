@@ -27,10 +27,7 @@
 		E4E93A162C103BA3002094C3 /* SavedListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A152C103BA3002094C3 /* SavedListingView.swift */; };
 		E4E93A182C11410C002094C3 /* AllListingImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A172C11410C002094C3 /* AllListingImagesView.swift */; };
 		E4E93A1A2C115B76002094C3 /* ListingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A192C115B76002094C3 /* ListingDetailView.swift */; };
-		E4E93A242C1165B6002094C3 /* SumbittedListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A232C1165B6002094C3 /* SumbittedListingView.swift */; };
-		E4E93A282C11694C002094C3 /* SubmissionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A272C11694C002094C3 /* SubmissionDetailView.swift */; };
 		E4E93A2A2C116BDA002094C3 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A292C116BDA002094C3 /* CategoryView.swift */; };
-		E4E93A2C2C117885002094C3 /* SwipeableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E93A2B2C117885002094C3 /* SwipeableCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,10 +52,7 @@
 		E4E93A152C103BA3002094C3 /* SavedListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedListingView.swift; sourceTree = "<group>"; };
 		E4E93A172C11410C002094C3 /* AllListingImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListingImagesView.swift; sourceTree = "<group>"; };
 		E4E93A192C115B76002094C3 /* ListingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailView.swift; sourceTree = "<group>"; };
-		E4E93A232C1165B6002094C3 /* SumbittedListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumbittedListingView.swift; sourceTree = "<group>"; };
-		E4E93A272C11694C002094C3 /* SubmissionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionDetailView.swift; sourceTree = "<group>"; };
 		E4E93A292C116BDA002094C3 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
-		E4E93A2B2C117885002094C3 /* SwipeableCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +103,6 @@
 				E4E93A132C103B7A002094C3 /* SaveView.swift */,
 				556D1D582C181B030086A8AD /* StoryCardView.swift */,
 				E4E93A112C103B63002094C3 /* StoryView.swift */,
-				E4E93A272C11694C002094C3 /* SubmissionDetailView.swift */,
-				E4E93A232C1165B6002094C3 /* SumbittedListingView.swift */,
-				E4E93A2B2C117885002094C3 /* SwipeableCardView.swift */,
 				E4E93A0D2C0EB652002094C3 /* SwipeItemView.swift */,
 				556D1D542C181AE20086A8AD /* UserStory.swift */,
 				556D1D562C181AEA0086A8AD /* UserStoryView.swift */,
@@ -202,7 +193,6 @@
 				E4E93A1A2C115B76002094C3 /* ListingDetailView.swift in Sources */,
 				E45C62942C0D6BCB00557DD9 /* HomeView.swift in Sources */,
 				E4CB08212C17DC3E009E4EC8 /* MyListingView.swift in Sources */,
-				E4E93A2C2C117885002094C3 /* SwipeableCardView.swift in Sources */,
 				556D1D592C181B030086A8AD /* StoryCardView.swift in Sources */,
 				E4E93A182C11410C002094C3 /* AllListingImagesView.swift in Sources */,
 				556D1D552C181AE20086A8AD /* UserStory.swift in Sources */,
@@ -210,14 +200,12 @@
 				E4E93A0E2C0EB652002094C3 /* SwipeItemView.swift in Sources */,
 				556D1D532C181ACE0086A8AD /* RepurposeItemView.swift in Sources */,
 				E4E93A2A2C116BDA002094C3 /* CategoryView.swift in Sources */,
-				E4E93A242C1165B6002094C3 /* SumbittedListingView.swift in Sources */,
 				E4E93A142C103B7A002094C3 /* SaveView.swift in Sources */,
 				E4E93A162C103BA3002094C3 /* SavedListingView.swift in Sources */,
 				E4E93A122C103B63002094C3 /* StoryView.swift in Sources */,
 				E4E93A0C2C0EA7BB002094C3 /* ContentView.swift in Sources */,
 				E4E93A102C0EBF3B002094C3 /* ProfileView.swift in Sources */,
 				E4A6BAE82C08313E005E35A3 /* ReHomeAppApp.swift in Sources */,
-				E4E93A282C11694C002094C3 /* SubmissionDetailView.swift in Sources */,
 				E4CB081F2C17DC16009E4EC8 /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

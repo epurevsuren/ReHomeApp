@@ -20,7 +20,7 @@ struct RepurposeItemView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             GeometryReader { geometry in
                 VStack(alignment: .leading, spacing: 0) {
                     if horizontalSizeClass == .compact && verticalSizeClass == .regular {

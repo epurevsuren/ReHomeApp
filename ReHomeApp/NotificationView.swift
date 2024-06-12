@@ -4,33 +4,45 @@ struct NotificationView: View {
     @EnvironmentObject var dataProvider: DataProvider
     
     var body: some View {
-        VStack {
+        NavigationStack {
             messageHeader()
             
             ScrollView {
                 VStack(spacing: 10) {
-                    ForEach(dataProvider.submissions, id: \.id) { submission in
-                                            if let currentListing = getListing(for: submission.listingId) {
-                                                submissionRow(count: submission.listingId, listing: currentListing)
-                                            }
-                                        }
+                    ForEach(getUniqueSubmissions().sorted(by: { $0.key < $1.key }), id: \.key) { listingId, count in
+                        if let listing = getListing(for: listingId) {
+                            submissionRow(count: count, listing: listing)
+                        }
+                    }
                 }
                 .padding(.bottom, 20)
             }
         }
+        .navigationBarTitle("Notifications")
     }
-
-    func getListing(for listingId: Int) -> Listing? {
-            return dataProvider.listings.first { $0.id == listingId }
+    
+    func getUniqueSubmissions() -> [Int: Int] {
+            var listingSubmissionCounts = [Int: Set<Int>]()
+            
+        for submission in dataProvider.submissions {
+                if listingSubmissionCounts[submission.listingId] != nil {
+                    listingSubmissionCounts[submission.listingId]?.insert(submission.userId)
+                } else {
+                    listingSubmissionCounts[submission.listingId] = [submission.userId]
+                }
+            }
+            
+            return listingSubmissionCounts.mapValues { $0.count }
         }
+    
+    func getListing(for listingId: Int) -> Listing? {
+        return dataProvider.listings.first { $0.id == listingId }
+    }
     
     func messageHeader() -> some View {
         Text("♻️ Repurpose Requests")
             .font(.title2)
             .fontWeight(.semibold)
-            .foregroundColor(Color(red: 0.07, green: 0.05, blue: 0.19))
-            .padding(.leading, 20)
-            .padding(.bottom, 20)
     }
     
     func submissionRow(count: Int, listing: Listing) -> some View {
@@ -46,11 +58,9 @@ struct NotificationView: View {
                 VStack(alignment: .leading) {
                     Text(listing.name)
                         .font(.headline)
-                        .foregroundColor(Color(red: 0.07, green: 0.05, blue: 0.19))
                     
                     Text(listing.category)
                         .font(.subheadline)
-                        .foregroundColor(Color(red: 0.19, green: 0.18, blue: 0.3))
                     
                     Text("\(count) stories for you to review")
                         .font(.caption)

@@ -10,14 +10,10 @@ import SwiftUI
 struct RepurposeItemView: View {
     @EnvironmentObject var dataProvider: DataProvider
     let itemId: Int
+    @State private var dataFetched = false
     
-    let stories = [
-        UserStory(id: 1, firstName: "Helena", profilePicture: "Helena"),
-        UserStory(id: 2, firstName: "Varun", profilePicture: "Varun"),
-        UserStory(id: 3, firstName: "Carina", profilePicture: "Carina"),
-        UserStory(id: 4, firstName: "Charles", profilePicture: "Charles"),
-        UserStory(id: 5, firstName: "Wang", profilePicture: "Wang")
-    ]
+    @State private var stories: [UserStory] = []
+    @State private var cards: [UserData] = []
     
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -37,6 +33,12 @@ struct RepurposeItemView: View {
                 }
             }
             .navigationBarTitle("♻️ Repurpose item", displayMode: .inline)
+            .onAppear{
+                if !dataFetched {
+                    fetchData()
+                    dataFetched = true
+                }
+            }
         }
     }
     
@@ -70,10 +72,32 @@ struct RepurposeItemView: View {
         }
     }
     
+    private func fetchData() {
+        for submission in dataProvider.submissions {
+            if let _ = listing(for: submission.listingId) {
+                if submission.listingId == itemId {
+                    if let user = dataProvider.readUser(id: submission.userId) {
+                        addNewStory(id: submission.id, firstName: user.userName, profilePicture: user.profileImageName)
+                        addUserData(submissionId: submission.id, fullName: user.userName, profilePicture: user.profileImageName, email: user.email, story: submission.story)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func addNewStory(id: Int, firstName: String, profilePicture: String) {
+        let newStory = UserStory(id: id, firstName: firstName, profilePicture: profilePicture)
+        stories.append(newStory)
+    }
+    
+    private func addUserData(submissionId: Int, fullName: String, profilePicture: String, email: String, story: String) {
+        let newData = UserData(id: submissionId, fullName: fullName, profilePicture: [profilePicture], email: email, stories: story)
+        cards.append(newData)
+    }
+    
     @ViewBuilder
     private func headerSection() -> some View {
         let currentListing = dataProvider.readListing(id: itemId)
-        
         VStack(alignment: .leading, spacing: 0) {
             Text(currentListing!.name)
                 .bold()
@@ -137,6 +161,10 @@ struct RepurposeItemView: View {
         .frame(maxHeight: .infinity)
     }
     
+    func listing(for listingId: Int) -> Listing? {
+        return dataProvider.listings.first { $0.id == listingId }
+    }
+    
     @ViewBuilder
     private func storiesSection() -> some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -148,7 +176,7 @@ struct RepurposeItemView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(alignment: .top, spacing: 12) {
                     ForEach(stories) { story in
-                        NavigationLink(destination: StoryCardView(id: story.id)) {
+                        NavigationLink(destination: StoryCardView(id: story.id, cards: cards)) {
                             UserStoryView(imageName: story.profilePicture, title: story.firstName)
                         }
                     }
@@ -171,7 +199,7 @@ struct RepurposeItemView: View {
                         ForEach(0..<maxStoryCount) { columnIndex in
                             let storyIndex = rowIndex * maxStoryCount + columnIndex
                             if storyIndex < self.stories.count {
-                                NavigationLink(destination: StoryCardView(id: self.stories[storyIndex].id)) {
+                                NavigationLink(destination: StoryCardView(id: self.stories[storyIndex].id, cards: cards)) {
                                     UserStoryView(imageName: self.stories[storyIndex].profilePicture, title: self.stories[storyIndex].firstName)
                                         .frame(maxWidth: .infinity)
                                 }

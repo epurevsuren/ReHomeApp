@@ -30,7 +30,7 @@ class DataProvider: ObservableObject {
             User(id: 5, userName: "Lindsey Nguyen", email: "cchii0712@gmail.com", bio: "iOS Developer and Swift Enthusiast.", profileImageName: "p1"),
             User(id: 6, userName: "Helena Hills", email: "helena.hills@student.uts.edu.au", bio: "I'm a new Marketing student at UTS.", profileImageName: "Helena"),
             User(id: 7, userName: "Varun Bhatia", email: "varun.bhatia@student.uts.edu.au", bio: "I just commenced my first semester at UTS for my Marketing degree.", profileImageName: "Varun"),
-            User(id: 8, userName: "Carina Morente", email: "carina.morente@student.uts.edu.au", bio: "I just commenced my first semester at UTS for my Marketing degree.", profileImageName: "Carine"),
+            User(id: 8, userName: "Carina Morente", email: "carina.morente@student.uts.edu.au", bio: "I just commenced my first semester at UTS for my Marketing degree.", profileImageName: "Carina"),
             User(id: 9, userName: "Charles Brown", email: "charles.brown@student.uts.edu.au", bio: "I'm studying for a Master of IT at UTS", profileImageName: "Charles"),
             User(id: 10, userName: "Wang Lee", email: "wang.lee@student.uts.edu.au", bio: "I'm a new college student at UTS.", profileImageName: "Wang"),
             User(id: 11, userName: "Harry", email: "harry@.mdsi.edu", bio: "Student MDSI", profileImageName: "p1"),

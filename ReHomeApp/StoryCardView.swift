@@ -19,19 +19,15 @@ struct UserData: Identifiable{
 //Define StoryView
 struct StoryCardView: View {
     let id: Int
+    let cards: [UserData]
     @State private var currentCardIndex = 0
-    @State private var Card: [UserData] = [
-        UserData(id: 1, fullName: "Helena Hills", profilePicture: ["Helena"], email: "helena.hills@student.uts.edu.au", stories: "“I'm a new Marketing student at UTS and came across your headphone listing. The color and features are exactly what I'm looking for! As I embark on my academic journey, having a reliable pair of headphones is essential for my coursework and study sessions. Could we discuss the possibility of me acquiring them from you?“"),
-        UserData(id: 2, fullName: "Varun Bhatia", profilePicture: ["Varun"], email: "varun.bhatia@student.uts.edu.au", stories: "I just commenced my first semester at UTS and need a headphone for my Marketing degree. Will be appreciate if I can receive it from someone. Really like the color and function of your headphone.“"),
-        UserData(id: 3, fullName: "Carina Morente", profilePicture: ["Carina"], email: "carina.morente@student.uts.edu.au", stories: "I just commenced my first semester at UTS and need a headphone for my Marketing degree. Will be appreciate if I can receive it from someone. Really like the color and function of your headphone.“"),
-        UserData(id: 4, fullName: "Charles Brown", profilePicture: ["Charles"], email: "charles.brown@student.uts.edu.au", stories: "I need this because..."),
-        UserData(id: 5, fullName: "Wang Lee", profilePicture: ["Wang"], email: "wang.lee@student.uts.edu.au", stories: "I need this because...")
-    ]
+    @State private var Card: [UserData]
     
-    init(id: Int) {
-            self.id = id
-            self._currentCardIndex = State(initialValue: id - 1)
-        }
+    init(id: Int, cards: [UserData]) {
+        self.id = id
+        self.cards = cards
+        self.Card = cards
+    }
     
     var body: some View {
         NavigationStack {
@@ -60,38 +56,48 @@ struct StoryCardView: View {
                         }
                     }
                 }
-                    .frame(width: 321, height: 485)
-                    .background(Color(red: 0.97, green: 20, blue: 1))
-                    .cornerRadius(50)
-                    .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19).opacity(0.54), radius: 2, x: 0, y: 4)
-                    HStack{
-                        Button(action: {
-                            // Update to next card
-                            currentCardIndex = (currentCardIndex + 1) % Card.count
-                        }) {
-                            Image(systemName: "xmark")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 40)
-                                .foregroundColor(.white)
-                                .frame(width: 89.13918, height: 89.13918)
-                                .background(Circle().fill(Color(red: 0.07, green: 0.05, blue: 0.19)).shadow(color: .gray, radius: 5))
-                                .padding(35)
-                        }
-                        NavigationLink(destination: Destination(profilePicture: Card[currentCardIndex].profilePicture.first ?? "", fullName: Card[currentCardIndex].fullName))  {
-                            Image(systemName: "heart.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 40)
-                                .foregroundColor(.white)
-                                .frame(width: 89.13918, height: 89.13918)
-                                .background(Circle().fill(Color(red: 0.07, green: 0.05, blue: 0.19)).shadow(color: .gray, radius: 5))
-                                .padding(35)
-                        }
-                        .navigationViewStyle(StackNavigationViewStyle())
-                        .edgesIgnoringSafeArea(.all)
+                .frame(width: 321, height: 485)
+                .background(Color(red: 0.97, green: 20, blue: 1))
+                .cornerRadius(50)
+                .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19).opacity(0.54), radius: 2, x: 0, y: 4)
+                HStack{
+                    Button(action: {
+                        // Update to next card
+                        currentCardIndex = (currentCardIndex + 1) % Card.count
+                    }) {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40)
+                            .foregroundColor(.white)
+                            .frame(width: 89.13918, height: 89.13918)
+                            .background(Circle().fill(Color(red: 0.07, green: 0.05, blue: 0.19)).shadow(color: .gray, radius: 5))
+                            .padding(35)
                     }
+                    NavigationLink(destination: Destination(profilePicture: Card[currentCardIndex].profilePicture.first ?? "", fullName: Card[currentCardIndex].fullName))  {
+                        Image(systemName: "heart.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40)
+                            .foregroundColor(.white)
+                            .frame(width: 89.13918, height: 89.13918)
+                            .background(Circle().fill(Color(red: 0.07, green: 0.05, blue: 0.19)).shadow(color: .gray, radius: 5))
+                            .padding(35)
+                    }
+                    .navigationViewStyle(StackNavigationViewStyle())
+                    .edgesIgnoringSafeArea(.all)
+                }
                 
+            }
+        }
+        .onAppear{
+            for(idx, element) in Card.enumerated() {
+                if(element.id == id)
+                {
+                    //print("Index: ",idx)
+                    currentCardIndex = idx
+                    break
+                }
             }
         }
     }
@@ -128,7 +134,7 @@ struct Destination: View {
                     .cornerRadius(8)
                     .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19), radius: 2, x: 0, y: 4)
             }
-                    .padding(5)
+            .padding(5)
             Button("Chat") {
                 /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
             }
@@ -162,13 +168,13 @@ struct Destination1: View {
                 .frame(width: 335, height: 75, alignment: .top)
             Spacer()
             Rectangle()
-            .foregroundColor(.clear)
-            .frame(width: 253, height: 253)
-            .background(
-            Image("Done")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            )
+                .foregroundColor(.clear)
+                .frame(width: 253, height: 253)
+                .background(
+                    Image("Done")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                )
             Spacer()
             Button("Back to Home") {
                 
@@ -189,8 +195,14 @@ struct Destination1: View {
         
     }
 }
+
 //Define Preview
 #Preview {
-    StoryCardView(id: 1)
+    StoryCardView(id: 1, cards: [
+        UserData(id: 1, fullName: "Helena Hills", profilePicture: ["Helena"], email: "helena.hills@student.uts.edu.au", stories: "“I'm a new Marketing student at UTS and came across your headphone listing. The color and features are exactly what I'm looking for! As I embark on my academic journey, having a reliable pair of headphones is essential for my coursework and study sessions. Could we discuss the possibility of me acquiring them from you?“"),
+        UserData(id: 2, fullName: "Varun Bhatia", profilePicture: ["Varun"], email: "varun.bhatia@student.uts.edu.au", stories: "I just commenced my first semester at UTS and need a headphone for my Marketing degree. Will be appreciate if I can receive it from someone. Really like the color and function of your headphone.“"),
+        UserData(id: 3, fullName: "Carina Morente", profilePicture: ["Carina"], email: "carina.morente@student.uts.edu.au", stories: "I just commenced my first semester at UTS and need a headphone for my Marketing degree. Will be appreciate if I can receive it from someone. Really like the color and function of your headphone.“"),
+        UserData(id: 5, fullName: "Charles Brown", profilePicture: ["Charles"], email: "charles.brown@student.uts.edu.au", stories: "I need this because..."),
+        UserData(id: 6, fullName: "Wang Lee", profilePicture: ["Wang"], email: "wang.lee@student.uts.edu.au", stories: "I need this because...")
+    ])
 }
-

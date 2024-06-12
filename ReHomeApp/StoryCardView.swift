@@ -119,16 +119,16 @@ struct Destination: View {
                 .foregroundColor(.black)
             Spacer()
             Spacer()
-            Button("ReHome") {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+            NavigationLink(destination: Destination1(fullName: fullName)) {
+                Text("Rehome")
+                    .font(Font.custom("SF Pro", size: 17).weight(.semibold))
+                    .foregroundColor(Color(red: 0.96, green: 0.99, blue: 0.99))
+                    .frame(width: 160, height: 40, alignment: .center)
+                    .background(Color(red: 0.07, green: 0.05, blue: 0.19))
+                    .cornerRadius(8)
+                    .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19), radius: 2, x: 0, y: 4)
             }
-            .font(Font.custom("SF Pro", size: 17).weight(.semibold))
-            .foregroundColor(Color(red: 0.96, green: 0.99, blue: 0.99))
-            .frame(width: 160, height: 40, alignment: .center)
-            .background(Color(red: 0.07, green: 0.05, blue: 0.19))
-            .cornerRadius(8)
-            .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19), radius: 2, x: 0, y: 4)
-            .padding(5)
+                    .padding(5)
             Button("Chat") {
                 /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
             }
@@ -143,12 +143,52 @@ struct Destination: View {
             Spacer()
         }
         .padding()
-        .frame(width: 393, height: 852)
-        .background(Color(red: 0.96, green: 0.99, blue: 0.99))
         
     }
 }
 
+//Define Destination of ReHome button
+struct Destination1: View {
+    let fullName: String
+    var body: some View {
+        VStack {
+            Spacer()
+            Spacer()
+            Text("Approval message sent for \(fullName)’s Story")
+                .font(.title2)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color(red: 0.19, green: 0.18, blue: 0.3))
+                .frame(width: 335, height: 75, alignment: .top)
+            Spacer()
+            Rectangle()
+            .foregroundColor(.clear)
+            .frame(width: 253, height: 253)
+            .background(
+            Image("Done")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            )
+            Spacer()
+            Button("Back to Home") {
+                
+            }
+            .font(Font.custom("SF Pro", size: 17).weight(.semibold))
+            .foregroundColor(Color(red: 0.96, green: 0.99, blue: 0.99))
+            .frame(width: 160, height: 40, alignment: .center)
+            .background(Color(red: 0.07, green: 0.05, blue: 0.19))
+            .cornerRadius(8)
+            .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19), radius: 2, x: 0, y: 4)
+            .padding(5)
+            Spacer()
+            Spacer()
+            Spacer()
+            Spacer()
+        }
+        .padding()
+        
+    }
+}
 //Define Preview
 #Preview {
     StoryCardView(id: 1)

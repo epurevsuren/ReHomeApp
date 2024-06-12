@@ -77,7 +77,9 @@ struct RepurposeItemView: View {
             if let _ = listing(for: submission.listingId) {
                 if submission.listingId == itemId {
                     if let user = dataProvider.readUser(id: submission.userId) {
-                        addNewStory(id: submission.id, firstName: user.userName, profilePicture: user.profileImageName)
+                        let fullNameArr = user.userName.components(separatedBy: " ")
+                        let firstName = fullNameArr[0]
+                        addNewStory(id: submission.id, firstName: firstName, profilePicture: user.profileImageName)
                         addUserData(submissionId: submission.id, fullName: user.userName, profilePicture: user.profileImageName, email: user.email, story: submission.story)
                     }
                 }

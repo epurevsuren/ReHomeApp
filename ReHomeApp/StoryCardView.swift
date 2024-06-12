@@ -19,13 +19,11 @@ struct UserData: Identifiable{
 //Define StoryView
 struct StoryCardView: View {
     let id: Int
-    let cards: [UserData]
     @State private var currentCardIndex = 0
     @State private var Card: [UserData]
     
     init(id: Int, cards: [UserData]) {
         self.id = id
-        self.cards = cards
         self.Card = cards
     }
     
@@ -134,6 +132,7 @@ struct Destination: View {
                     .cornerRadius(8)
                     .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19), radius: 2, x: 0, y: 4)
             }
+            .navigationViewStyle(StackNavigationViewStyle())
             .padding(5)
             Button("Chat") {
                 /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/

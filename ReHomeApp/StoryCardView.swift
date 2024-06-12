@@ -29,65 +29,79 @@ struct StoryCardView: View {
     
     var body: some View {
         NavigationStack {
-            VStack{
-                ZStack{
-                    VStack{
-                        if let profilePicture = Card[currentCardIndex].profilePicture.first {
-                            Image(profilePicture)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 96)
-                                .clipShape(Circle())
-                            Text(Card[currentCardIndex].fullName)
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.black)
-                            Text(Card[currentCardIndex].email)
-                                .font(.footnote)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color(red: 0.89, green: 0.59, blue: 0.48))
-                                .padding(10)
-                            Text(Card[currentCardIndex].stories)
-                                .fontWeight(.regular)
-                                .foregroundColor(Color(red: 0.19, green: 0.18, blue: 0.3))
-                                .frame(width: 297, alignment:.topLeading)
+            ScrollView{
+                VStack{
+                    let screenSize: CGRect = UIScreen.main.bounds
+                    ZStack{
+                        VStack{
+                            if let profilePicture = Card[currentCardIndex].profilePicture.first {
+                                Image(profilePicture)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 100)
+                                    .clipShape(Circle())
+                                    .padding(.top, 25)
+                                Text(Card[currentCardIndex].fullName)
+                                    .font(.title2)
+                                    .fontWeight(.semibold)
+                                Text(Card[currentCardIndex].email)
+                                    .font(.footnote)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color(red: 0.89, green: 0.59, blue: 0.48))
+                                    .padding(5)
+                                Text(Card[currentCardIndex].stories)
+                                    .fontWeight(.regular)
+                                    .padding()
+                                    .padding(.leading, 5)
+                                    .padding(.bottom, 15)
+                                    .frame(width: .infinity, alignment:.topLeading)
+                            }
                         }
                     }
-                }
-                .frame(width: 321, height: 485)
-                .background(Color(red: 0.97, green: 20, blue: 1))
-                .cornerRadius(50)
-                .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19).opacity(0.54), radius: 2, x: 0, y: 4)
-                HStack{
-                    Button(action: {
-                        // Update to next card
-                        currentCardIndex = (currentCardIndex + 1) % Card.count
-                    }) {
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40)
-                            .foregroundColor(.white)
-                            .frame(width: 89.13918, height: 89.13918)
-                            .background(Circle().fill(Color(red: 0.07, green: 0.05, blue: 0.19)).shadow(color: .gray, radius: 5))
-                            .padding(35)
+                    .frame(width: screenSize.width*0.86, height: .infinity)
+                    .background(Color(.secondarySystemBackground))
+                    //.background(Color(red: 0.97, green: 20, blue: 1))
+                    .cornerRadius(50)
+                    .shadow(color: Color(.tertiaryLabel), radius: 2, x: 0, y: 4)
+                    HStack{
+                        Button(action: {
+                            
+                            if(1 < Card.count)
+                            {
+                                Card.remove(at: currentCardIndex)
+                                currentCardIndex = (currentCardIndex + 1) % Card.count
+                            } else {
+                            }
+                            
+                        }) {
+                            Image(systemName: "xmark")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40)
+                                .foregroundColor(.white)
+                                .frame(width: 89.13918, height: 89.13918)
+                                .background(Circle().fill(Color(red: 0.07, green: 0.05, blue: 0.19)).shadow(color: .gray, radius: 5))
+                                .padding(.trailing, 30)
+                        }
+                        NavigationLink(destination: Destination(profilePicture: Card[currentCardIndex].profilePicture.first ?? "", fullName: Card[currentCardIndex].fullName))  {
+                            Image(systemName: "heart.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40)
+                                .foregroundColor(.white)
+                                .frame(width: 89.13918, height: 89.13918)
+                                .background(Circle().fill(Color(red: 0.07, green: 0.05, blue: 0.19)).shadow(color: .gray, radius: 5))
+                                .padding(10)
+                        }
+                        .navigationViewStyle(StackNavigationViewStyle())
+                        .edgesIgnoringSafeArea(.all)
                     }
-                    NavigationLink(destination: Destination(profilePicture: Card[currentCardIndex].profilePicture.first ?? "", fullName: Card[currentCardIndex].fullName))  {
-                        Image(systemName: "heart.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40)
-                            .foregroundColor(.white)
-                            .frame(width: 89.13918, height: 89.13918)
-                            .background(Circle().fill(Color(red: 0.07, green: 0.05, blue: 0.19)).shadow(color: .gray, radius: 5))
-                            .padding(35)
-                    }
-                    .navigationViewStyle(StackNavigationViewStyle())
-                    .edgesIgnoringSafeArea(.all)
+                    
                 }
-                
             }
+            
         }
+        .navigationBarTitle("User Story")
         .onAppear{
             for(idx, element) in Card.enumerated() {
                 if(element.id == id)
@@ -106,8 +120,7 @@ struct Destination: View {
     let fullName: String
     
     var body: some View {
-        VStack {
-            Spacer()
+        NavigationStack {
             Spacer()
             if let profileImage = UIImage(named: profilePicture) {
                 Image(uiImage: profileImage)
@@ -120,15 +133,18 @@ struct Destination: View {
                 .font(Font.custom("Inter", size: 24)
                     .weight(.medium))
                 .multilineTextAlignment(.center)
-                .foregroundColor(.black)
+            
             Spacer()
             Spacer()
             NavigationLink(destination: Destination1(fullName: fullName)) {
+                
+                let myDynamicColor = UIColor(dynamicProvider: { $0.userInterfaceStyle == .dark ? .black : .white })
+                
                 Text("Rehome")
                     .font(Font.custom("SF Pro", size: 17).weight(.semibold))
-                    .foregroundColor(Color(red: 0.96, green: 0.99, blue: 0.99))
+                    .foregroundColor(Color(myDynamicColor))
                     .frame(width: 160, height: 40, alignment: .center)
-                    .background(Color(red: 0.07, green: 0.05, blue: 0.19))
+                    .background(Color(.darkTerror))
                     .cornerRadius(8)
                     .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19), radius: 2, x: 0, y: 4)
             }
@@ -138,15 +154,16 @@ struct Destination: View {
                 /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
             }
             .font(Font.custom("SF Pro", size: 17).weight(.semibold))
-            .foregroundColor(Color(red: 0.07, green: 0.05, blue: 0.19))
+            .foregroundColor(Color(.label))
             .frame(width: 160, height: 40, alignment: .center)
             .cornerRadius(8)
-            .overlay(RoundedRectangle(cornerRadius: 8).inset(by: 1).stroke(Color(red: 0.07, green: 0.05, blue: 0.19), lineWidth: 2))
+            .overlay(RoundedRectangle(cornerRadius: 8).inset(by: 1).stroke(Color(.darkTerror), lineWidth: 2))
             Spacer()
             Spacer()
             Spacer()
             Spacer()
         }
+        .navigationBarTitle("Confirm")
         .padding()
         
     }
@@ -159,14 +176,13 @@ struct Destination1: View {
     @State private var isHomeViewActive = false
     
     var body: some View {
-        VStack {
+        NavigationStack {
             Spacer()
             Spacer()
             Text("Approval message sent for \(fullName)’s Story")
                 .font(.title2)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
-                .foregroundColor(Color(red: 0.19, green: 0.18, blue: 0.3))
                 .frame(width: 335, height: 75, alignment: .top)
             Spacer()
             Rectangle()
@@ -178,13 +194,15 @@ struct Destination1: View {
                         .aspectRatio(contentMode: .fit)
                 )
             Spacer()
+            let myDynamicColor = UIColor(dynamicProvider: { $0.userInterfaceStyle == .dark ? .black : .white })
+            
             Button("Back to Home") {
                 isHomeViewActive = true
             }
             .font(Font.custom("SF Pro", size: 17).weight(.semibold))
-            .foregroundColor(Color(red: 0.96, green: 0.99, blue: 0.99))
+            .foregroundColor(Color(myDynamicColor))
             .frame(width: 160, height: 40, alignment: .center)
-            .background(Color(red: 0.07, green: 0.05, blue: 0.19))
+            .background(Color(.darkTerror))
             .cornerRadius(8)
             .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19), radius: 2, x: 0, y: 4)
             .padding(5)
@@ -198,6 +216,7 @@ struct Destination1: View {
             Spacer()
             Spacer()
         }
+        .navigationBarTitle("Approval")
         .padding()
         
     }

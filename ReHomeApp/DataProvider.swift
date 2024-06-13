@@ -8,6 +8,7 @@ class DataProvider: ObservableObject {
     @Published var users: [User] = []
     @Published var submissions: [Submission] = []
     @Published var currentUser: User
+    @Published var userStories: [Submission] = []
 
     init() {
         self.currentUser = User(
@@ -103,7 +104,9 @@ class DataProvider: ObservableObject {
         ]
         
         // Dummy Submissions
-        submissions = [
+        submissions = []
+        
+        userStories = [
             Submission(id: 1, listingId: 5, ownerId: 4, userId: 6, story: "I'm a new Marketing student at UTS and came across your headphone listing. The color and features are exactly what I'm looking for! As I embark on my academic journey, having a reliable pair of headphones is essential for my coursework and study sessions. Could we discuss the possibility of me acquiring them from you?", date: Date()),
             Submission(id: 2, listingId: 5, ownerId: 4, userId: 7, story: "I just commenced my first semester at UTS and need a headphone for my Marketing degree. Will be appreciate if I can receive it from someone. Really like the color and function of your headphone.", date: Date()),
             Submission(id: 3, listingId: 5, ownerId: 4, userId: 8, story: "I just commenced my first semester at UTS and need a headphone for my Marketing degree. Will be appreciate if I can receive it from someone. Really like the color and function of your headphone.", date: Date()),
@@ -111,23 +114,28 @@ class DataProvider: ObservableObject {
             Submission(id: 5, listingId: 5, ownerId: 4, userId: 9, story: "I need this because...", date: Date()),
             Submission(id: 6, listingId: 5, ownerId: 4, userId: 10, story: "I need this because...", date: Date())
         ]
+        
+        myListings = [Listing(id: 5, userId: 5, name: "Headphones", imageNames: ["product1"], category: "Electronics", user: "Lindsey", userImage: "p1", condition: "Used - like new", pickupLocation: "Pick-up from Uni library", description: "An almost new headphone. Bought it in Jan 2024. But now I am gifted a new one. So wanna give this way.")]
     }
     
 
     func addSubmission(_ submission: Submission, to listingId: Int) {
         if listings.firstIndex(where: { $0.id == listingId }) != nil {
             submissions.append(submission)
+            userStories.append(submission)
         }
     }
 
-    func acceptSubmission(_ submission: Submission, for listingId: Int) {
+    func acceptSubmission(_ submissionId: Int, for listingId: Int) {
         if listings.firstIndex(where: { $0.id == listingId }) != nil {
-            submissions.removeAll { $0.listingId == listingId && $0.id != submission.id }
+            submissions.removeAll { $0.listingId == listingId && $0.id != submissionId }
+            userStories.removeAll { $0.listingId == listingId && $0.id != submissionId }
         }
     }
 
     func rejectSubmission(_ submissionId: Int, for listingId: Int) {
         submissions.removeAll { $0.id == submissionId }
+        userStories.removeAll { $0.id == submissionId }
     }
 
     func updateListing(_ updatedListing: Listing) {
@@ -147,6 +155,10 @@ class DataProvider: ObservableObject {
     
     func readListing(id: Int) -> Listing? {
         return listings.first { $0.id == id }
+    }
+    
+    func getUserStoryCount(id: Int) -> Int {
+        userStories.filter{ $0.listingId == id }.count
     }
 }
 

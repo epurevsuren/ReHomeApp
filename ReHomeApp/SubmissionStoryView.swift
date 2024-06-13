@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct NotificationView: View {
+struct SubmissionStoryView: View {
     @EnvironmentObject var dataProvider: DataProvider
     
     var body: some View {
@@ -8,7 +8,7 @@ struct NotificationView: View {
             
             messageHeader()
             
-            if dataProvider.submissions.isEmpty {
+            if dataProvider.userStories.isEmpty {
                 noSubmissionsView()
             } else {
                 submissionsListView()
@@ -62,7 +62,7 @@ struct NotificationView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 83, height: 81)
                     .clipped()
-                    .cornerRadius(10)
+                    .cornerRadius(48)
                 
                 VStack(alignment: .leading) {
                     Text(listing.name)
@@ -94,7 +94,7 @@ struct NotificationView: View {
     func getUniqueSubmissions() -> [Int: Int] {
         var listingSubmissionCounts = [Int: Set<Int>]()
         
-        for submission in dataProvider.submissions {
+        for submission in dataProvider.userStories {
             if listingSubmissionCounts[submission.listingId] != nil {
                 listingSubmissionCounts[submission.listingId]?.insert(submission.userId)
             } else {
@@ -124,76 +124,24 @@ struct NotificationView: View {
     }
 }
 
-struct SubmissionView: View {
-    let submission: Submission
-    let listing: Listing
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            Text(listing.name)
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(listing.imageNames, id: \.self) { imageName in
-                        loadImage(named: imageName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 200)
-                            .cornerRadius(10)
-                            .padding(.trailing, 10)
-                    }
-                }
-            }
-            
-            Text("Category: \(listing.category)")
-                .font(.headline)
-            
-            Text("Condition: \(listing.condition)")
-                .font(.headline)
-                .foregroundColor(Color(red: 0.89, green: 0.59, blue: 0.48))
-            
-            Text("Pickup Location: \(listing.pickupLocation)")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-            
-            Text(listing.description)
-                .font(.body)
-            
-            Divider()
-            
-            Text("Submission Story")
-                .font(.title2)
-                .fontWeight(.bold)
-            
-            Text(submission.story)
-                .font(.body)
-            
-            Spacer()
-        }
-        .padding()
-        .navigationTitle("Submission Details")
-    }
-    
-    private func loadImage(named imageName: String) -> Image {
-        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName).path
-        if let uiImage = UIImage(contentsOfFile: imagePath) {
-            return Image(uiImage: uiImage)
-        } else {
-            return Image(imageName) // Fallback to assets
-        }
-    }
-    
-    private func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
+private func loadImage(named imageName: String) -> Image {
+    let imagePath = getDocumentsDirectory().appendingPathComponent(imageName).path
+    if let uiImage = UIImage(contentsOfFile: imagePath) {
+        return Image(uiImage: uiImage)
+    } else {
+        return Image(imageName) // Fallback to assets
     }
 }
 
-struct NotificationView_Previews: PreviewProvider {
+private func getDocumentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+}
+
+
+struct SubmissionStoryView_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationView()
+        SubmissionStoryView()
             .environmentObject(DataProvider())
     }
 }

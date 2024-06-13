@@ -98,7 +98,7 @@ struct SubmissionDetailView: View {
 
     private func acceptSubmission(_ submission: Submission) {
         // Accept the submission and delete others
-        dataProvider.acceptSubmission(submission, for: listing.id)
+        dataProvider.acceptSubmission(submission.id, for: listing.id)
     }
 
     private func rejectSubmission(_ submission: Submission) {

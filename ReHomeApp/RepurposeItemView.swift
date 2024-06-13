@@ -32,7 +32,7 @@ struct RepurposeItemView: View {
                     }
                 }
             }
-            .navigationBarTitle("♻️ Repurpose item", displayMode: .inline)
+            .navigationBarTitle("♻️ My item", displayMode: .inline)
             .onAppear{
                 if !dataFetched {
                     fetchData()
@@ -54,7 +54,7 @@ struct RepurposeItemView: View {
                 .padding(.horizontal)
             
             storiesSection()
-                .frame(height: geometry.size.height * 0.55)
+                .frame(height: geometry.size.height * 0.45)
         }
     }
     
@@ -75,7 +75,7 @@ struct RepurposeItemView: View {
     }
     
     private func fetchData() {
-        for submission in dataProvider.submissions {
+        for submission in dataProvider.userStories {
             if let _ = listing(for: submission.listingId) {
                 if submission.listingId == itemId {
                     if let user = dataProvider.readUser(id: submission.userId) {

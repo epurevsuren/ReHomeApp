@@ -21,6 +21,7 @@ struct StoryCardView: View {
     let id: Int
     @State private var currentCardIndex = 0
     @State private var Card: [UserData]
+    @EnvironmentObject var dataProvider: DataProvider
     
     init(id: Int, cards: [UserData]) {
         self.id = id
@@ -65,7 +66,7 @@ struct StoryCardView: View {
                     .shadow(color: Color(.tertiaryLabel), radius: 2, x: 0, y: 4)
                     HStack{
                         Button(action: {
-                            
+                            rejectSubmission(Card[currentCardIndex].id)
                             if(1 < Card.count)
                             {
                                 Card.remove(at: currentCardIndex)
@@ -83,7 +84,7 @@ struct StoryCardView: View {
                                 .background(Circle().fill(Color(red: 0.07, green: 0.05, blue: 0.19)).shadow(color: .gray, radius: 5))
                                 .padding(.trailing, 30)
                         }
-                        NavigationLink(destination: Destination(profilePicture: Card[currentCardIndex].profilePicture.first ?? "", fullName: Card[currentCardIndex].fullName))  {
+                        NavigationLink(destination: Destination(profilePicture: Card[currentCardIndex].profilePicture.first ?? "", fullName: Card[currentCardIndex].fullName, submissionId: Card[currentCardIndex].id, itemId: self.id))  {
                             Image(systemName: "heart.fill")
                                 .resizable()
                                 .scaledToFit()
@@ -113,11 +114,20 @@ struct StoryCardView: View {
             }
         }
     }
+    
+    private func rejectSubmission(_ submissionId: Int) {
+        // Reject the submission
+        dataProvider.rejectSubmission(submissionId, for: self.id)
+    }
 }
 //Define Destination of Heart button
 struct Destination: View {
     let profilePicture: String
     let fullName: String
+    let submissionId: Int
+    let itemId: Int
+    @EnvironmentObject var dataProvider: DataProvider
+    @State private var isDestination1Active = false
     
     var body: some View {
         NavigationStack {
@@ -136,20 +146,23 @@ struct Destination: View {
             
             Spacer()
             Spacer()
-            NavigationLink(destination: Destination1(fullName: fullName)) {
-                
-                let myDynamicColor = UIColor(dynamicProvider: { $0.userInterfaceStyle == .dark ? .black : .white })
-                
-                Text("Rehome")
-                    .font(Font.custom("SF Pro", size: 17).weight(.semibold))
-                    .foregroundColor(Color(myDynamicColor))
-                    .frame(width: 160, height: 40, alignment: .center)
-                    .background(Color(.darkTerror))
-                    .cornerRadius(8)
-                    .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19), radius: 2, x: 0, y: 4)
+            
+            let myDynamicColor = UIColor(dynamicProvider: { $0.userInterfaceStyle == .dark ? .black : .white })
+            
+            Button("Rehome") {
+                isDestination1Active = true
+                acceptSubmission(submissionId)
             }
-            .navigationViewStyle(StackNavigationViewStyle())
-            .padding(5)
+            .font(Font.custom("SF Pro", size: 17).weight(.semibold))
+            .foregroundColor(Color(myDynamicColor))
+            .frame(width: 160, height: 40, alignment: .center)
+            .background(Color(.darkTerror))
+            .cornerRadius(8)
+            .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19), radius: 2, x: 0, y: 4)
+            .navigationDestination(isPresented: $isDestination1Active) {
+                Destination1(fullName: fullName)
+            }
+            
             Button("Chat") {
                 /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
             }
@@ -166,6 +179,11 @@ struct Destination: View {
         .navigationBarTitle("Confirm")
         .padding()
         
+    }
+    
+    private func acceptSubmission(_ submissionId: Int) {
+        // Accept the submission and delete others
+        dataProvider.acceptSubmission(submissionId, for: self.itemId)
     }
 }
 
@@ -185,7 +203,7 @@ struct Destination1: View {
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
                 .padding(.top)
-                //.scaledToFit()
+            //.scaledToFit()
                 .frame(width: screenSize.width, height: 75, alignment: .top)
             Rectangle()
                 .foregroundColor(.clear)
@@ -219,15 +237,4 @@ struct Destination1: View {
         .padding()
         
     }
-}
-
-//Define Preview
-#Preview {
-    StoryCardView(id: 1, cards: [
-        UserData(id: 1, fullName: "Helena Hills", profilePicture: ["Helena"], email: "helena.hills@student.uts.edu.au", stories: "“I'm a new Marketing student at UTS and came across your headphone listing. The color and features are exactly what I'm looking for! As I embark on my academic journey, having a reliable pair of headphones is essential for my coursework and study sessions. Could we discuss the possibility of me acquiring them from you?“"),
-        UserData(id: 2, fullName: "Varun Bhatia", profilePicture: ["Varun"], email: "varun.bhatia@student.uts.edu.au", stories: "I just commenced my first semester at UTS and need a headphone for my Marketing degree. Will be appreciate if I can receive it from someone. Really like the color and function of your headphone.“"),
-        UserData(id: 3, fullName: "Carina Morente", profilePicture: ["Carina"], email: "carina.morente@student.uts.edu.au", stories: "I just commenced my first semester at UTS and need a headphone for my Marketing degree. Will be appreciate if I can receive it from someone. Really like the color and function of your headphone.“"),
-        UserData(id: 5, fullName: "Charles Brown", profilePicture: ["Charles"], email: "charles.brown@student.uts.edu.au", stories: "I need this because..."),
-        UserData(id: 6, fullName: "Wang Lee", profilePicture: ["Wang"], email: "wang.lee@student.uts.edu.au", stories: "I need this because...")
-    ])
 }

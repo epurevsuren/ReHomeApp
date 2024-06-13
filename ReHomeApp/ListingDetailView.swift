@@ -31,7 +31,7 @@ struct ListingDetailView: View {
 
             Text(listing.condition)
                 .font(.headline)
-                .foregroundColor(.orange)
+                .foregroundColor(Color(red: 0.89, green: 0.59, blue: 0.48))
 
             Text("Pickup Location: \(listing.pickupLocation)")
                 .font(.subheadline)

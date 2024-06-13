@@ -43,5 +43,20 @@ struct SaveView: View {
 }
 
 #Preview {
-    SaveView(listing: Listing(id: 1, userId: 2, name: "Sample", imageNames: ["sampleImage"], category: "Sample", user: "Harry", userImage: "profilePicture", condition: "Used - like new", pickupLocation: "Pick-up from Uni library", description: "Sample description"), onSave: {}, onCancel: {})
+    SaveView(
+        listing: Listing(
+            id: 1,
+            userId: 2,
+            name: "Sample",
+            imageNames: ["sampleImage"],
+            category: "Sample",
+            user: "Harry",
+            userImage: "profilePicture",
+            condition: "Used - like new",
+            pickupLocation: "Pick-up from Uni library",
+            description: "Sample description"
+        ),
+        onSave: {},
+        onCancel: {}
+    )
 }

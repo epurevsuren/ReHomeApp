@@ -10,29 +10,40 @@ struct StoryView: View {
     var onReject: () -> Void
 
     var body: some View {
-        VStack {
-            Text("Why do you want \(listing.name)?")
-                .font(.title)
+        VStack(spacing: 20) {
+            Text("Write your story here for \(listing.name)?")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundColor(Color(red: 0.03, green: 0.49, blue: 0.55))
                 .padding()
 
-            TextField("Enter your reason here", text: $reasonText)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+            TextEditor(text: $reasonText)
+                .padding()
+                .frame(width: 360, height: 250)
+                .background()
+                .cornerRadius(20)
+                .shadow(color: .gray.opacity(0.8), radius: 5, x: 0, y: 2)
                 .padding()
 
-            HStack {
+            HStack(spacing: 20) {
                 Button(action: {
                     onReject()
                     presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Reject")
                         .font(.title2)
-                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color(red: 0.03, green: 0.49, blue: 0.55))
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.red)
                         .cornerRadius(10)
+                        .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
+                        .overlay(
+                          RoundedRectangle(cornerRadius: 8)
+                            .inset(by: 1)
+                            .stroke(Color(red: 0.03, green: 0.49, blue: 0.55), lineWidth: 2)
+                        )
                 }
-                .padding()
 
                 Button(action: {
                     let submission = Submission(
@@ -43,24 +54,28 @@ struct StoryView: View {
                         story: reasonText,
                         date: Date()
                     )
+                    print("Submission Details ", submission)
                     onSubmit(submission)
                     presentationMode.wrappedValue.dismiss()
                 }) {
-                    Text("Submit Story")
+                    Text("Rehome")
                         .font(.title2)
-                        .foregroundColor(.white)
+                        .fontWeight(.bold)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.green)
+                        .background(Color(red: 0.03, green: 0.49, blue: 0.55))
+                        .foregroundColor(.white)
                         .cornerRadius(10)
+                        .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
                 }
-                .padding()
             }
+            .padding(.horizontal)
 
             Spacer()
         }
         .padding()
-        .navigationBarBackButtonHidden(false) // Prevent going back
+        .background(Color(.systemBackground))
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -82,4 +97,5 @@ struct StoryView: View {
         onSubmit: { _ in },
         onReject: {}
     )
+    .environmentObject(DataProvider())
 }

@@ -9,15 +9,10 @@ struct NotificationView: View {
             
             messageHeader()
             
-            ScrollView {
-                VStack(spacing: 10) {
-                    ForEach(dataProvider.submissions, id: \.id) { submission in
-                        if let listing = listing(for: submission.listingId) {
-                            submissionRow(submission: submission, listing: listing)
-                        }
-                    }
-                }
-                .padding(.bottom, 20)
+            if dataProvider.submissions.isEmpty {
+                noSubmissionsView()
+            } else {
+                submissionsListView()
             }
         }
         .background(Color.white)
@@ -26,14 +21,7 @@ struct NotificationView: View {
 
     func statusHeader() -> some View {
         HStack {
-            Text("9:41")
-                .font(.body)
-                .fontWeight(.semibold)
-                .foregroundColor(.black)
-                .padding(.leading, 20)
-            
             Spacer()
-            
             Image("Levels")
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 70, height: 20)
@@ -44,21 +32,52 @@ struct NotificationView: View {
     
     func messageHeader() -> some View {
         Text("Your Submissions")
-            .font(.title2)
+            .font(.title)
             .fontWeight(.bold)
             .foregroundColor(Color(red: 0.07, green: 0.05, blue: 0.19))
-            .padding(.leading, 20)
+            .padding(.leading, 10)
             .padding(.top, 20)
     }
     
+    func noSubmissionsView() -> some View {
+        VStack {
+            Spacer()
+            Image("empty")
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: 250, maxHeight: 250)
+                .padding()
+            Spacer()
+            Text("No submissions right now")
+                .font(.title2)
+                .foregroundColor(.gray)
+                .padding()
+            Spacer()
+        }
+    }
+
+    func submissionsListView() -> some View {
+        ScrollView {
+            VStack(spacing: 10) {
+                ForEach(dataProvider.submissions, id: \.id) { submission in
+                    if let listing = listing(for: submission.listingId) {
+                        submissionRow(submission: submission, listing: listing)
+                    }
+                }
+            }
+            .padding(.bottom, 20)
+        }
+    }
+
     func submissionRow(submission: Submission, listing: Listing) -> some View {
         VStack {
             HStack {
-                Image(listing.imageNames.first ?? "placeholderImage")
+                loadImage(named: listing.imageNames.first ?? "placeholderImage")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 83, height: 81)
                     .clipped()
+                    .cornerRadius(10)
                 
                 VStack(alignment: .leading) {
                     Text(listing.name)
@@ -80,6 +99,7 @@ struct NotificationView: View {
                 NavigationLink(destination: SubmissionView(submission: submission, listing: listing)) {
                     Image(systemName: "chevron.right")
                         .frame(width: 24, height: 24)
+                        .foregroundColor(Color.gray)
                 }
             }
             .padding()
@@ -91,6 +111,20 @@ struct NotificationView: View {
     
     func listing(for listingId: Int) -> Listing? {
         return dataProvider.listings.first { $0.id == listingId }
+    }
+    
+    private func loadImage(named imageName: String) -> Image {
+        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName).path
+        if let uiImage = UIImage(contentsOfFile: imagePath) {
+            return Image(uiImage: uiImage)
+        } else {
+            return Image(imageName) // Fallback to assets
+        }
+    }
+    
+    private func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }
 
@@ -107,7 +141,7 @@ struct SubmissionView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(listing.imageNames, id: \.self) { imageName in
-                        Image(imageName)
+                        loadImage(named: imageName)
                             .resizable()
                             .scaledToFit()
                             .frame(height: 200)
@@ -122,7 +156,7 @@ struct SubmissionView: View {
             
             Text("Condition: \(listing.condition)")
                 .font(.headline)
-                .foregroundColor(.orange)
+                .foregroundColor(Color(red: 0.89, green: 0.59, blue: 0.48))
             
             Text("Pickup Location: \(listing.pickupLocation)")
                 .font(.subheadline)
@@ -144,6 +178,20 @@ struct SubmissionView: View {
         }
         .padding()
         .navigationTitle("Submission Details")
+    }
+    
+    private func loadImage(named imageName: String) -> Image {
+        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName).path
+        if let uiImage = UIImage(contentsOfFile: imagePath) {
+            return Image(uiImage: uiImage)
+        } else {
+            return Image(imageName) // Fallback to assets
+        }
+    }
+    
+    private func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }
 

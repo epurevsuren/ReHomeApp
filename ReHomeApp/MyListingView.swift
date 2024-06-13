@@ -6,7 +6,7 @@ struct MyListingsView: View {
     var body: some View {
         NavigationStack {
             List(dataProvider.myListings) { listing in
-                NavigationLink(destination: ListingDetailView(listing: listing)) {
+                NavigationLink(destination: MyListingDetailView(listing: listing)) {
                     ListingRowView(listing: listing)
                 }
             }
@@ -20,8 +20,8 @@ struct ListingRowView: View {
 
     var body: some View {
         HStack {
-            if let firstImageName = listing.imageNames.first, let uiImage = loadImage(named: firstImageName) {
-                Image(uiImage: uiImage)
+            if let firstImageName = listing.imageNames.first {
+                loadImage(named: firstImageName)
                     .resizable()
                     .frame(width: 50, height: 50)
                     .cornerRadius(5)
@@ -43,19 +43,18 @@ struct ListingRowView: View {
         }
         .padding(.vertical, 5)
     }
-
-    private func loadImage(named imageName: String) -> UIImage? {
+    
+    private func loadImage(named imageName: String) -> Image {
         let imagePath = getDocumentsDirectory().appendingPathComponent(imageName).path
-        return UIImage(contentsOfFile: imagePath)
+        if let uiImage = UIImage(contentsOfFile: imagePath) {
+            return Image(uiImage: uiImage)
+        } else {
+            return Image(imageName) // Fallback to assets
+        }
     }
 
     private func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
-}
-
-#Preview {
-    MyListingsView()
-        .environmentObject(DataProvider())
 }

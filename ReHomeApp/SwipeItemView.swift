@@ -32,16 +32,18 @@ struct SwipeItemView: View {
                 }) {
                     Image(systemName: "xmark.circle.fill")
                         .resizable()
+                        .scaledToFit()
                         .frame(width: 80, height: 80)
-                        .foregroundColor(.white)
-                        .background(Circle().fill(Color.red))
-                        .shadow(radius: 5)
+                        .foregroundColor(Color(red: 0.07, green: 0.05, blue: 0.19))
+                        .background(Circle().fill(Color(.white)))
+                        .clipShape(Circle())
+                        .padding()
                 }
                 .padding(.horizontal)
 
                 if currentIndex < filteredListings.count {
                     NavigationLink(destination: StoryView(listing: filteredListings[currentIndex], userId: 1, onSubmit: { submission in
-                        dataProvider.addSubmission(submission)
+                        dataProvider.addSubmission(submission, to: filteredListings[currentIndex].id)
                         onSubmit(submission)
                         currentIndex += 1
                     }, onReject: {
@@ -49,9 +51,12 @@ struct SwipeItemView: View {
                     })) {
                         Image(systemName: "heart.circle.fill")
                             .resizable()
+                            .scaledToFit()
                             .frame(width: 80, height: 80)
-                            .foregroundColor(.white)
-                            .background(Circle().fill(Color.green))
+                            .foregroundColor(Color(red: 0.07, green: 0.05, blue: 0.19))
+                            .background(Circle().fill(Color(.white)))
+                            .clipShape(Circle())
+                            .padding()
                             .shadow(radius: 5)
                     }
                     .padding(.horizontal)
@@ -85,40 +90,38 @@ struct SwipeableCardView: View {
                         if let firstImageName = listing.imageNames.first {
                             loadImage(named: firstImageName)
                                 .resizable()
-                                .scaledToFill()
-                                .frame(height: 200)
+                                .scaledToFit()
+                                .frame(width: UIScreen.main.bounds.width - 40, height: 200)
                                 .clipped()
                                 .cornerRadius(10)
+                                .overlay(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.black.opacity(0.6), Color.clear]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                    .cornerRadius(10)
+                                )
                         } else {
                             Rectangle()
                                 .fill(Color.gray)
-                                .frame(height: 200)
+                                .frame(width: UIScreen.main.bounds.width - 40, height: 200)
                                 .cornerRadius(10)
                                 .overlay(Text("No Image Available").foregroundColor(.white))
                         }
                     }
                     
-                    LinearGradient(
-                        gradient: Gradient(colors: [Color.black.opacity(0.6), Color.clear]),
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-                    .frame(height: 80)
-                    .cornerRadius(10)
-                    
-                    if let user = user {
-                        HStack {
-                            Image(user.profileImageName)
-                                .resizable()
-                                .frame(width: 40, height: 40)
-                                .clipShape(Circle())
-                                .padding(.leading, 10)
-                            Text(user.userName)
-                                .font(.headline)
-                                .foregroundColor(.white)
-                        }
-                        .padding([.top, .trailing], 10)
+                    HStack {
+                        Image(listing.userImage)
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            .padding(.leading, 10)
+                        Text(listing.user)
+                            .font(.headline)
+                            .foregroundColor(.white)
                     }
+                    .padding([.top, .trailing], 10)
                 }
 
                 Text(listing.name)
@@ -129,7 +132,7 @@ struct SwipeableCardView: View {
                 
                 Text(listing.condition)
                     .font(.subheadline)
-                    .foregroundColor(.orange)
+                    .foregroundColor(Color(red: 0.89, green: 0.59, blue: 0.48))
                     .padding(.leading, 10)
 
                 Text(listing.pickupLocation)

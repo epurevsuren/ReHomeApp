@@ -1,16 +1,16 @@
 import SwiftUI
 
 struct AllListingView: View {
-     var listing: Listing
+    var listing: Listing
 
     var body: some View {
         ScrollView {
             VStack {
                 ForEach(listing.imageNames, id: \.self) { imageName in
-                    Image(imageName)
+                    loadImage(named: imageName)
                         .resizable()
-                        .scaledToFill()
-                        .frame(height: 200)
+                        .scaledToFit()
+                        .frame(width: 400 , height: 400)
                         .clipped()
                         .cornerRadius(10)
                         .padding()
@@ -18,19 +18,30 @@ struct AllListingView: View {
             }
         }
         .navigationTitle("All Images")
-        .onAppear{
-            print("bagga \(listing)")
+    }
+
+    private func loadImage(named imageName: String) -> Image {
+        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName).path
+        if let uiImage = UIImage(contentsOfFile: imagePath) {
+            return Image(uiImage: uiImage)
+        } else {
+            return Image(imageName) // Fallback to assets
         }
+    }
+
+    private func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }
 
 #Preview {
     AllListingView(
-        listing: (Listing(
+        listing: Listing(
             id: 1,
             userId: 2,
             name: "Sample",
-            imageNames: ["sampleImage"],
+            imageNames: ["rugbyImage"],
             category: "Sample",
             user: "Harry",
             userImage: "profilePicture",
@@ -39,5 +50,4 @@ struct AllListingView: View {
             description: "Sample description"
         )
     )
-        )
 }

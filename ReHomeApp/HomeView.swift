@@ -10,9 +10,9 @@ struct HomeView: View {
                 // Profile and Notification
                 HStack {
                     NavigationLink {
-                        ProfileView()
+
                     } label: {
-                        Image("p1")
+                        Image("logo")
                             .resizable()
                             .frame(width: 50, height: 50)
                             .clipShape(Circle())
@@ -31,10 +31,11 @@ struct HomeView: View {
                         NotificationView()
                             .environmentObject(dataProvider)
                     } label: {
-                        Image(systemName: "bell.fill")
+                        Image(systemName: "app.badge.fill")
                             .resizable()
-                            .frame(width: 25, height: 25)
+                            .frame(width: 30, height: 30)
                             .padding(.trailing)
+                            .foregroundColor(Color(red: 0.03, green: 0.49, blue: 0.55))
                     }
                 }
                 .padding()

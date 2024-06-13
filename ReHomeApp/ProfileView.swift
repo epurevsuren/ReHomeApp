@@ -32,15 +32,9 @@ struct ProfileView: View {
         }
         .padding()
         .navigationTitle("Profile")
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.blue)
-                }
-            }
+        .toolbar 
+        {
+
         }
     }
 }

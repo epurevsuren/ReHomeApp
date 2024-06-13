@@ -4,8 +4,7 @@ struct NotificationView: View {
     @EnvironmentObject var dataProvider: DataProvider
     
     var body: some View {
-        VStack(spacing: 0) {
-            statusHeader()
+        NavigationStack {
             
             messageHeader()
             
@@ -15,28 +14,14 @@ struct NotificationView: View {
                 submissionsListView()
             }
         }
-        .background(Color.white)
-        .edgesIgnoringSafeArea(.top)
-    }
-
-    func statusHeader() -> some View {
-        HStack {
-            Spacer()
-            Image("Levels")
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 70, height: 20)
-                .padding(.trailing, 20)
-        }
-        .frame(height: 80)
+        .navigationBarTitle("Notifications")
     }
     
     func messageHeader() -> some View {
-        Text("Your Submissions")
-            .font(.title)
-            .fontWeight(.bold)
-            .foregroundColor(Color(red: 0.07, green: 0.05, blue: 0.19))
-            .padding(.leading, 10)
-            .padding(.top, 20)
+        Text("♻️ Repurpose Requests")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .padding()
     }
     
     func noSubmissionsView() -> some View {
@@ -70,44 +55,41 @@ struct NotificationView: View {
     }
 
     func submissionRow(count: Int, listing: Listing) -> some View {
-        VStack {
-            HStack {
-                loadImage(named: listing.imageNames.first ?? "placeholderImage")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 83, height: 81)
-                    .clipped()
-                    .cornerRadius(10)
-                
-                VStack(alignment: .leading) {
-                    Text(listing.name)
-                        .font(.headline)
-                        .foregroundColor(Color(red: 0.07, green: 0.05, blue: 0.19))
+            VStack {
+                HStack {
+                    Image(listing.imageNames.first ?? "placeholderImage")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 100, height: 100)
+                        .clipped()
+                        .cornerRadius(48)
                     
-                    Text(listing.category)
-                        .font(.subheadline)
-                        .foregroundColor(Color(red: 0.19, green: 0.18, blue: 0.3))
+                    VStack(alignment: .leading) {
+                        Text(listing.name)
+                            .font(.headline)
+                        
+                        Text(listing.category)
+                            .font(.subheadline)
+                        
+                        Text("\(count) stories for you to review")
+                            .font(.caption)
+                            .foregroundColor(Color(red: 0.03, green: 0.49, blue: 0.55))
+                    }
+                    .padding(.leading, 8)
                     
-                    Text("\(count) stories for you to review")
-                        .font(.caption)
-                        .foregroundColor(Color(red: 0.03, green: 0.49, blue: 0.55))
+                    Spacer()
+                    
+                    NavigationLink(destination: RepurposeItemView(itemId: listing.id)) {
+                        Image(systemName: "chevron.right")
+                            .frame(width: 24, height: 24)
+                    }
                 }
-                .padding(.leading, 8)
-                
-                Spacer()
-                
-                NavigationLink(destination: RepurposeItemView(itemId: listing.id)) {
-                    Image(systemName: "chevron.right")
-                        .frame(width: 24, height: 24)
-                        .foregroundColor(Color.gray)
-                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .padding(.horizontal, 20)
             }
-            .padding()
-            .background(Color(.systemGray6))
-            .cornerRadius(10)
-            .padding(.horizontal, 20)
         }
-    }
     
     func getUniqueSubmissions() -> [Int: Int] {
             var listingSubmissionCounts = [Int: Set<Int>]()

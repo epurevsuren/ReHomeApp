@@ -54,7 +54,7 @@ struct AddItemView: View {
                                 TextField("Item Name", text: $viewModel.itemNameText)
                                     .padding()
                                     .frame(width: frameWidth)
-                                    .background(Color(.systemGray6))
+                                    .background(Color(.tertiarySystemFill))
                                     .cornerRadius(10)
                                     .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
                                     .submitLabel(.done)
@@ -65,7 +65,7 @@ struct AddItemView: View {
                                 TextField("Pickup Location", text: $viewModel.pickupLocation)
                                     .padding()
                                     .frame(width: frameWidth)
-                                    .background(Color(.systemGray6))
+                                    .background(Color(.systemBackground))
                                     .cornerRadius(10)
                                     .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
                                     .submitLabel(.done)
@@ -78,7 +78,7 @@ struct AddItemView: View {
                                 
                                 TextEditor(text: $viewModel.descriptionText)
                                     .padding(4)
-                                    .background(Color(.systemGray6))
+                                    .background(Color(.tertiarySystemFill))
                                     .cornerRadius(10)
                                     .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
                                     .frame(width: frameWidth, height: 150)
@@ -92,7 +92,7 @@ struct AddItemView: View {
                             PhotosPicker("Select Images", selection: $viewModel.pickerItems, matching: .images)
                                 .padding()
                                 .frame(width: frameWidth, height: 40)
-                                .background(Color(.systemGray6))
+                                .background(Color(.tertiarySystemFill))
                                 .foregroundColor(Color(red: 0.03, green: 0.49, blue: 0.55))
                                 .cornerRadius(10)
                                 .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
@@ -102,7 +102,7 @@ struct AddItemView: View {
                                     if viewModel.selectedImages.isEmpty {
                                         ForEach(0..<3) { _ in
                                             RoundedRectangle(cornerRadius: 10)
-                                                .fill(Color(.systemGray6))
+                                                .fill(Color(.tertiarySystemFill))
                                                 .frame(width: 200, height: 200)
                                                 .overlay(Text("No Images Selected")
                                                     .foregroundColor(.gray)
@@ -143,7 +143,7 @@ struct AddItemView: View {
                             .pickerStyle(MenuPickerStyle())
                             .padding()
                             .frame(width: frameWidth, height: 40)
-                            .background(Color(red: 0.03, green: 0.49, blue: 0.55))
+                            .background(Color(.tertiarySystemBackground))
                             .cornerRadius(10)
                             .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
                             
@@ -156,7 +156,7 @@ struct AddItemView: View {
                             .pickerStyle(MenuPickerStyle())
                             .padding()
                             .frame(width: frameWidth, height: 40)
-                            .background(Color(red: 0.03, green: 0.49, blue: 0.55))
+                            .background(Color(.tertiarySystemBackground))
                             .cornerRadius(10)
                             .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
                         }

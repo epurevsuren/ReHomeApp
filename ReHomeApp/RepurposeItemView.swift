@@ -46,6 +46,7 @@ struct RepurposeItemView: View {
     private func portraitLayout(geometry: GeometryProxy) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             headerSection()
+                .frame(height: geometry.size.height * 0.45)
             
             Divider()
                 .frame(height: 3)
@@ -53,6 +54,7 @@ struct RepurposeItemView: View {
                 .padding(.horizontal)
             
             storiesSection()
+                .frame(height: geometry.size.height * 0.55)
         }
     }
     
@@ -152,18 +154,14 @@ struct RepurposeItemView: View {
                                 .cornerRadius(5)
                                 .overlay(Text("No Image").foregroundColor(.white).font(.caption))
                         }
-                        
-                        HStack {
-                            Spacer().frame(height: 50)
-                        }
-                        .buttonStyle(.bordered)
                     }
                     
                     VStack(alignment: .leading, spacing: 14) {
                         ScrollView {
                             Text(currentListing!.description)
                                 .lineLimit(nil)
-                                .padding([.trailing, .top])
+                                .padding(.top, 35)
+                                .padding(.leading, 5)
                         }
                         .padding([.trailing])
                     }
@@ -186,6 +184,7 @@ struct RepurposeItemView: View {
                 .font(.title)
                 .bold()
                 .padding([.top, .leading, .bottom])
+                .padding(.bottom, 15)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(alignment: .top, spacing: 12) {
@@ -198,7 +197,6 @@ struct RepurposeItemView: View {
                 .padding(.leading)
             }
             .padding(.horizontal, 0)
-            //.padding(.bottom, 100)
         }
         .padding(0)
     }

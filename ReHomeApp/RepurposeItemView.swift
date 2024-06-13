@@ -160,7 +160,7 @@ struct RepurposeItemView: View {
                         ScrollView {
                             Text(currentListing!.description)
                                 .lineLimit(nil)
-                                .padding(.top, 35)
+                                .padding(.top)
                                 .padding(.leading, 5)
                         }
                         .padding([.trailing])

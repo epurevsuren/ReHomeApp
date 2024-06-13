@@ -19,9 +19,9 @@ struct NotificationView: View {
     
     func messageHeader() -> some View {
         Text("♻️ Repurpose Requests")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .padding()
+            .font(.title2)
+            .fontWeight(.semibold)
+            .padding()
     }
     
     func noSubmissionsView() -> some View {
@@ -40,7 +40,7 @@ struct NotificationView: View {
             Spacer()
         }
     }
-
+    
     func submissionsListView() -> some View {
         ScrollView {
             VStack(spacing: 10) {
@@ -53,57 +53,57 @@ struct NotificationView: View {
             .padding(.bottom, 20)
         }
     }
-
+    
     func submissionRow(count: Int, listing: Listing) -> some View {
-            VStack {
-                HStack {
-                    Image(listing.imageNames.first ?? "placeholderImage")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 100, height: 100)
-                        .clipped()
-                        .cornerRadius(48)
+        VStack {
+            HStack {
+                loadImage(named: listing.imageNames.first ?? "placeholderImage")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 83, height: 81)
+                    .clipped()
+                    .cornerRadius(10)
+                
+                VStack(alignment: .leading) {
+                    Text(listing.name)
+                        .font(.headline)
                     
-                    VStack(alignment: .leading) {
-                        Text(listing.name)
-                            .font(.headline)
-                        
-                        Text(listing.category)
-                            .font(.subheadline)
-                        
-                        Text("\(count) stories for you to review")
-                            .font(.caption)
-                            .foregroundColor(Color(red: 0.03, green: 0.49, blue: 0.55))
-                    }
-                    .padding(.leading, 8)
+                    Text(listing.category)
+                        .font(.subheadline)
                     
-                    Spacer()
-                    
-                    NavigationLink(destination: RepurposeItemView(itemId: listing.id)) {
-                        Image(systemName: "chevron.right")
-                            .frame(width: 24, height: 24)
-                    }
+                    Text("\(count) stories for you to review")
+                        .font(.caption)
+                        .foregroundColor(Color(red: 0.03, green: 0.49, blue: 0.55))
                 }
-                .padding()
-                .background(Color(.systemGray6))
-                .cornerRadius(10)
-                .padding(.horizontal, 20)
+                .padding(.leading, 8)
+                
+                Spacer()
+                
+                NavigationLink(destination: RepurposeItemView(itemId: listing.id)) {
+                    Image(systemName: "chevron.right")
+                        .frame(width: 24, height: 24)
+                }
             }
+            .padding()
+            .background(Color(.systemGray6))
+            .cornerRadius(10)
+            .padding(.horizontal, 20)
         }
+    }
     
     func getUniqueSubmissions() -> [Int: Int] {
-            var listingSubmissionCounts = [Int: Set<Int>]()
-            
+        var listingSubmissionCounts = [Int: Set<Int>]()
+        
         for submission in dataProvider.submissions {
-                if listingSubmissionCounts[submission.listingId] != nil {
-                    listingSubmissionCounts[submission.listingId]?.insert(submission.userId)
-                } else {
-                    listingSubmissionCounts[submission.listingId] = [submission.userId]
-                }
+            if listingSubmissionCounts[submission.listingId] != nil {
+                listingSubmissionCounts[submission.listingId]?.insert(submission.userId)
+            } else {
+                listingSubmissionCounts[submission.listingId] = [submission.userId]
             }
-            
-            return listingSubmissionCounts.mapValues { $0.count }
         }
+        
+        return listingSubmissionCounts.mapValues { $0.count }
+    }
     
     func listing(for listingId: Int) -> Listing? {
         return dataProvider.listings.first { $0.id == listingId }

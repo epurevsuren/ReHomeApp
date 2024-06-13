@@ -4,30 +4,20 @@ struct NotificationView: View {
     @EnvironmentObject var dataProvider: DataProvider
     
     var body: some View {
-        NavigationStack {
+        VStack(spacing: 0) {
+            statusHeader()
+            
             messageHeader()
             
-<<<<<<< HEAD
             if dataProvider.submissions.isEmpty {
                 noSubmissionsView()
             } else {
                 submissionsListView()
-=======
-            ScrollView {
-                VStack(spacing: 10) {
-                    ForEach(getUniqueSubmissions().sorted(by: { $0.key < $1.key }), id: \.key) { listingId, count in
-                        if let listing = getListing(for: listingId) {
-                            submissionRow(count: count, listing: listing)
-                        }
-                    }
-                }
-                .padding(.bottom, 20)
->>>>>>> ShivamNew
             }
         }
-        .navigationBarTitle("Notifications")
+        .background(Color.white)
+        .edgesIgnoringSafeArea(.top)
     }
-<<<<<<< HEAD
 
     func statusHeader() -> some View {
         HStack {
@@ -36,29 +26,11 @@ struct NotificationView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 70, height: 20)
                 .padding(.trailing, 20)
-=======
-    
-    func getUniqueSubmissions() -> [Int: Int] {
-            var listingSubmissionCounts = [Int: Set<Int>]()
-            
-        for submission in dataProvider.submissions {
-                if listingSubmissionCounts[submission.listingId] != nil {
-                    listingSubmissionCounts[submission.listingId]?.insert(submission.userId)
-                } else {
-                    listingSubmissionCounts[submission.listingId] = [submission.userId]
-                }
-            }
-            
-            return listingSubmissionCounts.mapValues { $0.count }
->>>>>>> ShivamNew
         }
-    
-    func getListing(for listingId: Int) -> Listing? {
-        return dataProvider.listings.first { $0.id == listingId }
+        .frame(height: 80)
     }
     
     func messageHeader() -> some View {
-<<<<<<< HEAD
         Text("Your Submissions")
             .font(.title)
             .fontWeight(.bold)
@@ -87,9 +59,9 @@ struct NotificationView: View {
     func submissionsListView() -> some View {
         ScrollView {
             VStack(spacing: 10) {
-                ForEach(dataProvider.submissions, id: \.id) { submission in
-                    if let listing = listing(for: submission.listingId) {
-                        submissionRow(submission: submission, listing: listing)
+                ForEach(getUniqueSubmissions().sorted(by: { $0.key < $1.key }), id: \.key) { listingId, count in
+                    if let listing = listing(for: listingId) {
+                        submissionRow(count: count, listing: listing)
                     }
                 }
             }
@@ -97,34 +69,24 @@ struct NotificationView: View {
         }
     }
 
-    func submissionRow(submission: Submission, listing: Listing) -> some View {
-=======
-        Text("♻️ Repurpose Requests")
-            .font(.title2)
-            .fontWeight(.semibold)
-    }
-    
     func submissionRow(count: Int, listing: Listing) -> some View {
->>>>>>> ShivamNew
         VStack {
             HStack {
                 loadImage(named: listing.imageNames.first ?? "placeholderImage")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 100, height: 100)
+                    .frame(width: 83, height: 81)
                     .clipped()
-<<<<<<< HEAD
                     .cornerRadius(10)
-=======
-                    .cornerRadius(48)
->>>>>>> ShivamNew
                 
                 VStack(alignment: .leading) {
                     Text(listing.name)
                         .font(.headline)
+                        .foregroundColor(Color(red: 0.07, green: 0.05, blue: 0.19))
                     
                     Text(listing.category)
                         .font(.subheadline)
+                        .foregroundColor(Color(red: 0.19, green: 0.18, blue: 0.3))
                     
                     Text("\(count) stories for you to review")
                         .font(.caption)
@@ -146,7 +108,20 @@ struct NotificationView: View {
             .padding(.horizontal, 20)
         }
     }
-<<<<<<< HEAD
+    
+    func getUniqueSubmissions() -> [Int: Int] {
+            var listingSubmissionCounts = [Int: Set<Int>]()
+            
+        for submission in dataProvider.submissions {
+                if listingSubmissionCounts[submission.listingId] != nil {
+                    listingSubmissionCounts[submission.listingId]?.insert(submission.userId)
+                } else {
+                    listingSubmissionCounts[submission.listingId] = [submission.userId]
+                }
+            }
+            
+            return listingSubmissionCounts.mapValues { $0.count }
+        }
     
     func listing(for listingId: Int) -> Listing? {
         return dataProvider.listings.first { $0.id == listingId }
@@ -232,8 +207,6 @@ struct SubmissionView: View {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
-=======
->>>>>>> ShivamNew
 }
 
 struct NotificationView_Previews: PreviewProvider {

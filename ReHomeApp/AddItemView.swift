@@ -1,6 +1,18 @@
 import PhotosUI
 import SwiftUI
 
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+
+    func dismissKeyboardOnTap() -> some View {
+        self.onTapGesture {
+            self.hideKeyboard()
+        }
+    }
+}
+
 class AddItemViewModel: ObservableObject {
     @Published var descriptionText: String = ""
     @Published var itemNameText: String = ""
@@ -45,6 +57,10 @@ struct AddItemView: View {
                                     .background(Color(.systemGray6))
                                     .cornerRadius(10)
                                     .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
+                                    .submitLabel(.done)
+                                    .onSubmit {
+                                        hideKeyboard()
+                                    }
                                 
                                 TextField("Pickup Location", text: $viewModel.pickupLocation)
                                     .padding()
@@ -52,13 +68,25 @@ struct AddItemView: View {
                                     .background(Color(.systemGray6))
                                     .cornerRadius(10)
                                     .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
+                                    .submitLabel(.done)
+                                    .onSubmit {
+                                        hideKeyboard()
+                                    }
                                 
-                                TextField("Description", text: $viewModel.descriptionText)
-                                    .padding()
-                                    .frame(width: frameWidth, height: 150)
+                                Text("Description")
+                                    .foregroundColor(.blue)
+                                
+                                TextEditor(text: $viewModel.descriptionText)
+                                    .padding(4)
                                     .background(Color(.systemGray6))
                                     .cornerRadius(10)
                                     .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
+                                    .frame(width: frameWidth, height: 150)
+                                    .submitLabel(.done)
+                                    .onSubmit {
+                                        hideKeyboard()
+                                    }
+                                
                             }
                             
                             PhotosPicker("Select Images", selection: $viewModel.pickerItems, matching: .images)
@@ -71,40 +99,38 @@ struct AddItemView: View {
                             
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill(Color(.systemGray6))
-                                        .frame(width: 200, height: 200)
-                                        .overlay(Text("No Images Selected")
-                                            .foregroundColor(.gray)
-                                            .font(.subheadline))
-                                        .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill(Color(.systemGray6))
-                                        .frame(width: 200, height: 200)
-                                        .overlay(Text("No Images Selected")
-                                            .foregroundColor(.gray)
-                                            .font(.subheadline))
-                                        .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill(Color(.systemGray6))
-                                        .frame(width: 200, height: 200)
-                                        .overlay(Text("No Images Selected")
-                                            .foregroundColor(.gray)
-                                            .font(.subheadline))
-                                        .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
+                                    if viewModel.selectedImages.isEmpty {
+                                        ForEach(0..<3) { _ in
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill(Color(.systemGray6))
+                                                .frame(width: 200, height: 200)
+                                                .overlay(Text("No Images Selected")
+                                                    .foregroundColor(.gray)
+                                                    .font(.subheadline))
+                                                .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
+                                        }
+                                    } else {
+                                        ForEach(viewModel.selectedImages, id: \.self) { image in
+                                            Image(uiImage: image)
+                                                .resizable()
+                                                .frame(width: 250, height: 250)
+                                                .cornerRadius(10)
+                                                .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
+                                        }
+                                    }
                                 }
                                 .padding()
                                 .frame(maxWidth: .infinity, alignment: .center) // Center the HStack
                             }
-                            .onChange(of: viewModel.pickerItems) { _ in
+                            .onChange(of: viewModel.pickerItems) { newItems in
                                 Task {
-                                    viewModel.selectedImages.removeAll()
-                                    
-                                    for item in viewModel.pickerItems {
+                                    var newImages: [UIImage] = []
+                                    for item in newItems {
                                         if let data = try? await item.loadTransferable(type: Data.self), let uiImage = UIImage(data: data) {
-                                            viewModel.selectedImages.append(uiImage)
+                                            newImages.append(uiImage)
                                         }
                                     }
+                                    viewModel.selectedImages = newImages
                                 }
                             }
                             
@@ -117,7 +143,7 @@ struct AddItemView: View {
                             .pickerStyle(MenuPickerStyle())
                             .padding()
                             .frame(width: frameWidth, height: 40)
-                            .background(Color(.systemGray6))
+                            .background(Color(red: 0.03, green: 0.49, blue: 0.55))
                             .cornerRadius(10)
                             .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
                             
@@ -130,7 +156,7 @@ struct AddItemView: View {
                             .pickerStyle(MenuPickerStyle())
                             .padding()
                             .frame(width: frameWidth, height: 40)
-                            .background(Color(.systemGray6))
+                            .background(Color(red: 0.03, green: 0.49, blue: 0.55))
                             .cornerRadius(10)
                             .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
                         }
@@ -193,6 +219,7 @@ struct AddItemView: View {
                     }
                     .padding([.horizontal, .bottom], 20) // Added horizontal and bottom padding
                     .background(Color(.systemBackground))
+                    .dismissKeyboardOnTap()
                 }
                 .navigationBarTitle("Add New Item", displayMode: .inline)
                 .padding()

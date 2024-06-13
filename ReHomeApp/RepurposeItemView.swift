@@ -97,6 +97,20 @@ struct RepurposeItemView: View {
         cards.append(newData)
     }
     
+    private func loadImage(named imageName: String) -> Image {
+        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName).path
+        if let uiImage = UIImage(contentsOfFile: imagePath) {
+            return Image(uiImage: uiImage)
+        } else {
+            return Image(imageName) // Fallback to assets
+        }
+    }
+
+    private func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
     @ViewBuilder
     private func headerSection() -> some View {
         let currentListing = dataProvider.readListing(id: itemId)
@@ -120,29 +134,27 @@ struct RepurposeItemView: View {
             GeometryReader { geometry in
                 HStack(alignment: .center, spacing: 5) {
                     
-                    let component1Width = geometry.size.width * 0.35
-                    let component2Width = geometry.size.width * 0.65
+                    let component1Width = geometry.size.width * 0.40
+                    let component2Width = geometry.size.width * 0.60
                     
                     VStack {
-                        Image(currentListing!.imageNames.first ?? "itemImage")
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(50)
-                            .frame(width: component1Width)
-                            .padding([.leading, .trailing])
+                        if let firstImageName = currentListing!.imageNames.first {
+                            loadImage(named: firstImageName)
+                                .resizable()
+                                .scaledToFit()
+                                .cornerRadius(30)
+                                .frame(width: component1Width)
+                                .padding([.leading])
+                        } else {
+                            Rectangle()
+                                .fill(Color.gray)
+                                .frame(width: 50, height: 50)
+                                .cornerRadius(5)
+                                .overlay(Text("No Image").foregroundColor(.white).font(.caption))
+                        }
                         
                         HStack {
-                            Button("Edit") {
-                                
-                            }
-                            .background(Color(red: 0.03, green: 0.49, blue: 0.55))
-                            .cornerRadius(8)
-                            .foregroundColor(.white)
-                            .frame(alignment: .center)
-                            .controlSize(.regular)
-                            .scaledToFit()
-                            .padding(.top)
-                            .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 4)
+                            Spacer().frame(height: 50)
                         }
                         .buttonStyle(.bordered)
                     }

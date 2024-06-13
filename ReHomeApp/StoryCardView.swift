@@ -174,26 +174,28 @@ struct Destination1: View {
     let fullName: String
     @EnvironmentObject var dataProvider: DataProvider
     @State private var isHomeViewActive = false
+    let screenSize: CGRect = UIScreen.main.bounds
     
     var body: some View {
         NavigationStack {
-            Spacer()
             Spacer()
             Text("Approval message sent for \(fullName)’s Story")
                 .font(.title2)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
-                .frame(width: 335, height: 75, alignment: .top)
-            Spacer()
+                .lineLimit(2)
+                .padding(.top)
+                //.scaledToFit()
+                .frame(width: screenSize.width, height: 75, alignment: .top)
             Rectangle()
                 .foregroundColor(.clear)
-                .frame(width: 253, height: 253)
+                .frame(width: 150, height: 150)
                 .background(
                     Image("Done")
                         .resizable()
+                        .scaledToFit()
                         .aspectRatio(contentMode: .fit)
                 )
-            Spacer()
             let myDynamicColor = UIColor(dynamicProvider: { $0.userInterfaceStyle == .dark ? .black : .white })
             
             Button("Back to Home") {
@@ -201,7 +203,7 @@ struct Destination1: View {
             }
             .font(Font.custom("SF Pro", size: 17).weight(.semibold))
             .foregroundColor(Color(myDynamicColor))
-            .frame(width: 160, height: 40, alignment: .center)
+            .frame(width: 150, height: 35, alignment: .center)
             .background(Color(.darkTerror))
             .cornerRadius(8)
             .shadow(color: Color(red: 0.07, green: 0.05, blue: 0.19), radius: 2, x: 0, y: 4)
@@ -210,9 +212,6 @@ struct Destination1: View {
                 HomeView()
                     .environmentObject(dataProvider)
             }
-            
-            Spacer()
-            Spacer()
             Spacer()
             Spacer()
         }

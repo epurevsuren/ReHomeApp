@@ -6,7 +6,7 @@ struct MyListingsView: View {
     var body: some View {
         NavigationStack {
             List(dataProvider.myListings) { listing in
-                NavigationLink(destination: MyListingDetailView(listing: listing)) {
+                NavigationLink(destination: ListingDetailView(listing: listing)) {
                     ListingRowView(listing: listing)
                 }
             }

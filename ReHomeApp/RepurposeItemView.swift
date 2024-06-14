@@ -32,7 +32,6 @@ struct RepurposeItemView: View {
                     }
                 }
             }
-            .navigationBarTitle("♻️ My item", displayMode: .inline)
             .onAppear{
                 if !dataFetched {
                     fetchData()

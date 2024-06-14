@@ -40,11 +40,21 @@ struct ListingDetailView: View {
             Text(listing.description)
                 .font(.body)
                 .padding()
-
+            
+            Divider()
+            Text("No stories yet, for this item")
+            .font(
+                .title2
+                .weight(.bold)
+            )
+            .multilineTextAlignment(.center)
+            .foregroundColor(Color(red: 0.03, green: 0.49, blue: 0.55))
+            .frame(width: 335, height: 75, alignment: .center)
+            
             Spacer()
         }
         .padding()
-        .navigationTitle(listing.name)
+        //.navigationTitle(listing.name)
     }
 
     private func loadImage(named imageName: String) -> UIImage? {

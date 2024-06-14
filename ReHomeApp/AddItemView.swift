@@ -65,7 +65,7 @@ struct AddItemView: View {
                                 TextField("Pickup Location", text: $viewModel.pickupLocation)
                                     .padding()
                                     .frame(width: frameWidth)
-                                    .background(Color(.systemBackground))
+                                    .background(Color(.tertiarySystemFill))
                                     .cornerRadius(10)
                                     .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
                                     .submitLabel(.done)
@@ -75,9 +75,11 @@ struct AddItemView: View {
                                 
                                 Text("Description")
                                     .foregroundColor(.blue)
+
                                 
                                 TextEditor(text: $viewModel.descriptionText)
                                     .padding(4)
+                                    .foregroundStyle(.black)
                                     .background(Color(.tertiarySystemFill))
                                     .cornerRadius(10)
                                     .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
@@ -143,7 +145,7 @@ struct AddItemView: View {
                             .pickerStyle(MenuPickerStyle())
                             .padding()
                             .frame(width: frameWidth, height: 40)
-                            .background(Color(.tertiarySystemBackground))
+                            .background(Color(red: 0.03, green: 0.49, blue: 0.55))
                             .cornerRadius(10)
                             .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
                             
@@ -156,7 +158,7 @@ struct AddItemView: View {
                             .pickerStyle(MenuPickerStyle())
                             .padding()
                             .frame(width: frameWidth, height: 40)
-                            .background(Color(.tertiarySystemBackground))
+                            .background(Color(red: 0.03, green: 0.49, blue: 0.55))
                             .cornerRadius(10)
                             .shadow(color: .gray.opacity(0.5), radius: 5, x: 0, y: 2)
                         }
